@@ -1,2 +1,3 @@
-# La Noiraude Bot
+# La Noiraude
+Le robot discord de calcul de pâturage
 
