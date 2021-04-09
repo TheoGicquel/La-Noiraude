@@ -31,7 +31,7 @@ function getVectorCoords(A,B){
 */
 function getProduitScalaire(u,v){
     let tempx = u.x * v.x;
-    let tempy = u.y * u.y;
+    let tempy = u.y * v.y;
     return tempx+tempy;
 }
 
