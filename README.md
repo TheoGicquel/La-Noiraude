@@ -10,5 +10,5 @@ Le robot discord de calcul de centre de gravité de pâturage (oui, ça existe)
 cela installera les dépendances node du projet décrites dans `package.json`
 ### Lancement
 * toujours dans un terminal a la racine du projet : `npm run test`
-### Arrèt
+### Arrêt
 * dans ce même terminal, effectuer un  **ctrl-C** 
