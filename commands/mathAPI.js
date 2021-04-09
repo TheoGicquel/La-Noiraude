@@ -22,3 +22,15 @@ function getVectorCoords(A,B){
     outputVector.y = B.y - A.y;
     return outputVector;
 }
+
+/**
+* Obtenir le produit scalaire de deux vecteur d'entree
+* @param {vector} u vecteur
+* @param {vector} v vecteur
+* @returns {number} produit scalaire de sortie
+*/
+function getProduitScalaire(u,v){
+    let tempx = u.x * v.x;
+    let tempy = u.y * u.y;
+    return tempx+tempy;
+}
