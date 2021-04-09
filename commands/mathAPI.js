@@ -49,3 +49,25 @@ function getAngleSegment(segA,segB){
 
 }
 */
+
+/**
+* retourne vrai si G appartient à P et faux sinon
+* @param {polygone} P polygone
+* @param {point} G point
+* @returns {boolean} appartenance
+
+function GetAppartenancePointPolygone (polygone P, point G){
+    let Somme, Thetai, i;
+    Somme = 0.0
+    for(i=0;i<n-1;i++){
+        Thetai = getThetaI(undefined);
+        Somme += Thetai;
+    }
+    if(Somme == 2*Math.PI){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+*/
