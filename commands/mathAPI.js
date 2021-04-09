@@ -34,3 +34,18 @@ function getProduitScalaire(u,v){
     let tempy = u.y * u.y;
     return tempx+tempy;
 }
+
+
+/** SEGMENT DE CODE NON FONCTIONNEL ( VOIR !FIXME)
+* calculer l'angle entre les segments de droite 
+* @param {vector} segA 
+* @param {vector} segB
+* @returns {number} produit scalaire de sortie
+*
+function getAngleSegment(segA,segB){
+    let tempA = getProduitScalaire(segA,segB); // !FIXME confusion ici
+    let tempB = getVectorNorme(segA) * getVectorNorme(segB)
+    return Math.acos(tempA/tempB);
+
+}
+*/
