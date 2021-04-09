@@ -133,3 +133,6 @@ temp/
 
 ### Jsdoc ###
 /out
+
+### page html de test ###
+index.html
