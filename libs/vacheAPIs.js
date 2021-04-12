@@ -9,7 +9,7 @@ var vector = {
 
 /** Tableau de stockage des piquets définissant l'enclos*/
 let enclos = []
-
+exports.vacheEnclos = enclos;
 /**
  Ajoute un piquet dans un nouveau dans le tableau dédié à l'enclos
 * @param {number} coordX Cordonnees x du nouveau piquet
