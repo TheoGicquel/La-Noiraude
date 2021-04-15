@@ -35,28 +35,26 @@ function getProduitScalaire(u,v){
     return tempx+tempy;
 }
 
-
-/** SEGMENT DE CODE NON FONCTIONNEL ( VOIR !FIXME)
+/**
 * calculer l'angle entre les segments de droite 
 * @param {vector} segA 
 * @param {vector} segB
 * @returns {number} produit scalaire de sortie
-*
+*/
 function getAngleSegment(segA,segB){
     let tempA = getProduitScalaire(segA,segB); // !FIXME confusion ici
     let tempB = getVectorNorme(segA) * getVectorNorme(segB)
     return Math.acos(tempA/tempB);
 
 }
-*/
 
 /**
 * retourne vrai si G appartient à P et faux sinon
 * @param {polygone} P polygone
 * @param {point} G point
 * @returns {boolean} appartenance
-
-function GetAppartenancePointPolygone (polygone P, point G){
+*/
+function GetAppartenancePointPolygone ( P, G){
     let Somme, Thetai, i;
     Somme = 0.0
     for(i=0;i<n-1;i++){
@@ -70,4 +68,24 @@ function GetAppartenancePointPolygone (polygone P, point G){
         return false;
     }
 }
+
+/**
+* calculer l'aire du polygone fourni en entrée
+* @param {Array} polygone 
+* @returns {number} Aire obtenu
 */
+function getAirePolygone(polygone){
+    let result=0.0,tempA=0.0,tempB=0.0,incremented,previousResult=0;
+    let maxArraySize=polygone.length-1;
+    for(let i=0;i<maxArraySize;i++){
+        incremented=i+1;
+        tempA = (polygone[i].x)*(polygone[incremented].y);
+        tempB = (polygone[incremented].x)*(polygone[i].y);
+        result += (tempA-tempB);
+    }
+    console.log((polygone[maxArraySize].x)-(polygone[maxArraySize].y));
+    result += (polygone[maxArraySize].x)-(polygone[maxArraySize].y);
+    return result*(0.5);
+    
+}
+    
