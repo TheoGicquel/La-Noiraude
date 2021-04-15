@@ -45,7 +45,6 @@ function getAngleSegment(segA,segB){
     let tempA = getProduitScalaire(segA,segB); // !FIXME confusion ici
     let tempB = getVectorNorme(segA) * getVectorNorme(segB)
     return Math.acos(tempA/tempB);
-
 }
 
 /**
@@ -75,17 +74,22 @@ function GetAppartenancePointPolygone ( P, G){
 * @returns {number} Aire obtenu
 */
 function getAirePolygone(polygone){
-    let result=0.0,tempA=0.0,tempB=0.0,incremented,previousResult=0;
-    let maxArraySize=polygone.length-1;
-    for(let i=0;i<maxArraySize;i++){
-        incremented=i+1;
-        tempA = (polygone[i].x)*(polygone[incremented].y);
-        tempB = (polygone[incremented].x)*(polygone[i].y);
-        result += (tempA-tempB);
+    let result=0.0,tempA=0.0,tempB=0.0,incremented=0,previousResult=1;
+    let i;
+    let nbrValeursPolygone=polygone.length-1;
+    for(i=0;i<nbrValeursPolygone-1;i++){
+        
+
+        tempA = polygone[i].x * polygone[incremented].y;
+        tempB = polygone[incremented].x * polygone[i].y;
+
+        result += tempA-tempB;
+        result = result*previousResult;
+        previousResult=result;
     }
-    console.log((polygone[maxArraySize].x)-(polygone[maxArraySize].y));
-    result += (polygone[maxArraySize].x)-(polygone[maxArraySize].y);
+    tempA = polygone[nbrValeursPolygone].x * polygone[0].y;
+    tempB = polygone[0].x * polygone[nbrValeursPolygone].y;
+    result += tempA-tempB;
+    result = result*previousResult
     return result*(0.5);
-    
 }
-    
