@@ -93,3 +93,10 @@ function getAirePolygone(polygone){
     result = result*previousResult
     return result*(0.5);
 }
+
+
+
+
+function getCentreGravite(){
+    
+}
