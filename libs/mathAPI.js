@@ -84,3 +84,52 @@ function getAirePolygone(polygone){
     }
     return result*(0.5);
 }
+
+
+
+
+function getCentreGravite(polygone){
+    let centreGrav = {};
+    let aire=getAirePolygone();
+    centreGrav.x = getAbscisseGravite(polygone,aire);
+    centreGrav.y = getOrdonneeGravite(polygone,aire);
+    return centreGrav;
+}
+
+function getAbscisseGravite(polygone, aire){
+    let result=0;
+    let temPoly=polygone;
+    let tempA;
+    let tempB;
+    let tempAdd;
+    temPoly.push(polygone[0]);
+
+    for(let i=0;i<temPoly.length-1;i++){
+        tempA = temPoly[i].x * temPoly[i+1].y;
+        tempB = temPoly[i+1].x * temPoly[i].y;
+        tempAdd = temPoly[i].x + temPoly[i+1].x;
+        tempC = tempA-tempB;
+        result+=(tempAdd)*(tempA-tempB);
+    }
+    result = result*(1/(6*aire));
+    return result;
+}
+
+function getOrdonneeGravite(polygone, aire){
+    let result=0;
+    let temPoly=polygone;
+    let tempA;
+    let tempB;
+    let tempAdd;
+    temPoly.push(polygone[0]);
+
+    for(let i=0;i<temPoly.length-1;i++){
+        tempA = temPoly[i].x * temPoly[i+1].y;
+        tempB = temPoly[i+1].x * temPoly[i].y;
+        tempAdd = temPoly[i].y + temPoly[i+1].y;
+        tempC = tempA-tempB;
+        result+=(tempAdd)*(tempA-tempB);
+    }
+    result = result*(1/(6*aire));
+    return result;
+}
