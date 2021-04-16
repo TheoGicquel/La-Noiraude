@@ -124,3 +124,21 @@ function getAbscisseGravite(polygone, aire){
     return result;
 }
 
+function getOrdonneeGravite(polygone, aire){
+    let result=0;
+    let temPoly=polygone;
+    let tempA;
+    let tempB;
+    let tempAdd;
+    temPoly.push(polygone[0]);
+
+    for(let i=0;i<temPoly.length-1;i++){
+        tempA = temPoly[i].x * temPoly[i+1].y;
+        tempB = temPoly[i+1].x * temPoly[i].y;
+        tempAdd = temPoly[i].y + temPoly[i+1].y;
+        tempC = tempA-tempB;
+        result+=(tempAdd)*(tempA-tempB);
+    }
+    result = result*(1/(6*aire));
+    return result;
+}
