@@ -6,20 +6,19 @@
 * @param {number} vecY Cordonnees y du vecteur
 * @returns {number} Norme obtenue
 */
-function getVectorNorme(vecX,vecY){
-    return Math.sqrt(Math.pow(vecX,2)+Math.pow(vecY,2));
+function getVectorNorme(vecteur){
+    return Math.sqrt(Math.pow(vecteur.x,2)+Math.pow(vecteur.y,2));
 }
 
 /**
-* Retourne les coordonnées du vecteur crée par les deux points A et B en entrée
-* @param {number}  A de coordonnées x et y
-* @param {number} B de coordonnées x et y
+* Retourne les coordonnées du vecteur d'entree
+* @param {Vector}  input vecteur d'entree
 * @returns {Object} outputVector coordonnées du vecteur
 */
-function getVectorCoords(A,B){
+function getVectorCoords(input){
     let outputVector = {x:undefined,y:undefined}
-    outputVector.x = B.x - A.x;
-    outputVector.y = B.y - A.y;
+    outputVector.x = input.xb  - input.xa;
+    outputVector.y = input.yb - input.ya;
     return outputVector;
 }
 
@@ -37,13 +36,17 @@ function getProduitScalaire(u,v){
 
 /**
 * calculer l'angle entre les segments de droite 
-* @param {vector} segA 
-* @param {vector} segB
+* @param {Segment} vecA 
+* @param {Segment} vecB
 * @returns {number} produit scalaire de sortie
 */
-function getAngleSegment(segA,segB){
-    let tempA = getProduitScalaire(segA,segB); // !FIXME confusion ici
-    let tempB = getVectorNorme(segA) * getVectorNorme(segB)
+function getAngleSegment(vecA,vecB){
+    if(vecA.hasOwnProperty("xa")){
+        throw "vecteur (x,y) attendu au lieu de segment";
+    }
+
+    let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
+    let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
     return Math.acos(tempA/tempB);
 }
 
@@ -57,15 +60,31 @@ function GetAppartenancePointPolygone ( polygone,point){
     let temPoly = polygone;
     temPoly.push(temPoly[0]);
     let result=0;
+    let tempVecA;
+    let tempVecB;
     for(let i=0;i<polygone.length-1;i++)
     {
-        result+=getAngleSegment(polygone[i],point);
+        
+        tempVecA=segmentConstructor(point,polygone[i]);
+        
+        tempVecB=segmentConstructor(point,polygone[i+1]);
+        tempVecA= getVectorCoords(tempVecA);
+        tempVecB= getVectorCoords(tempVecB);
+        result+=getAngleSegment(tempVecA,tempVecB);
+        console.log(result);
+    }
+    
+    if(result==2*Math.PI){
+        return true;
+    }
+    else{
+        return false;
     }
 
 }
 
 function segmentConstructor(pointA,pointB){
-    let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yB:pointB.y}
+    let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yb:pointB.y}
     return output;
 }
 
@@ -94,3 +113,4 @@ function getAirePolygone(polygone){
     result = result*previousResult
     return result*(0.5);
 }
+
