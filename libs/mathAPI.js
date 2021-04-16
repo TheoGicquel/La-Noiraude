@@ -71,7 +71,6 @@ function GetAppartenancePointPolygone ( polygone,point){
         tempVecA= getVectorCoords(tempVecA);
         tempVecB= getVectorCoords(tempVecB);
         result+=getAngleSegment(tempVecA,tempVecB);
-        console.log(result);
     }
     
     if(result==2*Math.PI){
