@@ -104,7 +104,6 @@ function getAirePolygone(polygone){
     return result*(0.5);
 }
 
-<<<<<<< HEAD
 
 
 
@@ -153,5 +152,3 @@ function getOrdonneeGravite(polygone, aire){
     result = result*(1/(6*aire));
     return result;
 }
-=======
->>>>>>> math_api-appartenance_point_polygone
