@@ -106,6 +106,16 @@ function getCentreGravite(polygone){
     return centreGrav;
 }
 
-function getAbscisseGravite(){
+function getAbscisseGravite(polygone, aire){
+    let result, i;
+
+    for(i=0;i<polygone.length-1;i++){
+     result+=(polygone[i].y+polygone[i+1].y)*((polygone[i].x*polygone[i+1].y)-(polygone[i+1].x*polygone[i].y));
+     console.log(result);
+    }
+
+    result = result*(1/(6*aire));
+    return result;
 
 }
+
