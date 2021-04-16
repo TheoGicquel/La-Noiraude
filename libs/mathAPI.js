@@ -53,19 +53,20 @@ function getAngleSegment(segA,segB){
 * @param {point} G point
 * @returns {boolean} appartenance
 */
-function GetAppartenancePointPolygone ( P, G){
-    let Somme, Thetai, i;
-    Somme = 0.0
-    for(i=0;i<n-1;i++){
-        Thetai = getThetaI(undefined);
-        Somme += Thetai;
+function GetAppartenancePointPolygone ( polygone,point){
+    let temPoly = polygone;
+    temPoly.push(temPoly[0]);
+    let result=0;
+    for(let i=0;i<polygone.length-1;i++)
+    {
+        result+=getAngleSegment(polygone[i],point);
     }
-    if(Somme == 2*Math.PI){
-        return true;
-    }
-    else{
-        return false;
-    }
+
+}
+
+function segmentConstructor(pointA,pointB){
+    let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yB:pointB.y}
+    return output;
 }
 
 /**
