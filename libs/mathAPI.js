@@ -106,20 +106,19 @@ function getCentreGravite(polygone){
 }
 
 function getAbscisseGravite(polygone, aire){
-    let result, i;
+    let result=0;
     let temPoly=polygone;
     let tempA;
     let tempB;
     let tempAdd;
     temPoly.push(polygone[0]);
 
-    for(i=0;i<temPoly.length-1;i++){
+    for(let i=0;i<temPoly.length-1;i++){
         tempA = temPoly[i].x * temPoly[i+1].y;
-        console.log(tempA)
         tempB = temPoly[i+1].x * temPoly[i].y;
         tempAdd = temPoly[i].x + temPoly[i+1].x;
-        result+=(tempAdd)*(tempA -tempB);
-        console.log(result);
+        tempC = tempA-tempB;
+        result+=(tempAdd)*(tempA-tempB);
     }
     result = result*(1/(6*aire));
     return result;
