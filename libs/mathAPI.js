@@ -71,16 +71,13 @@ function GetAppartenancePointPolygone ( P, G){
 /**
 * calculer l'aire du polygone fourni en entrée
 * @param {Array} polygone 
-* @returns {number} Aire obtenue
+* @returns {Number} result Aire obtenue
 */
 function getAirePolygone(polygone){
     let result=0;
-    let tempA=0;
-    let tempB=0;
-    let i;
     polygone.push(polygone[0]);
     let nbrValeursPolygone=polygone.length;
-    for(i=0;i<nbrValeursPolygone-1;i++){
+    for(let i=0;i<nbrValeursPolygone-1;i++){
         tempA = polygone[i].x * polygone[i+1].y;
         tempB = polygone[i+1].x * polygone[i].y;
         result += tempA-tempB;
