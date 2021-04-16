@@ -75,11 +75,11 @@ function GetAppartenancePointPolygone ( P, G){
 */
 function getAirePolygone(polygone){
     let result=0;
-    polygone.push(polygone[0]);
-    let nbrValeursPolygone=polygone.length;
-    for(let i=0;i<nbrValeursPolygone-1;i++){
-        tempA = polygone[i].x * polygone[i+1].y;
-        tempB = polygone[i+1].x * polygone[i].y;
+    let tempPoly = polygone;
+    tempPoly.push(polygone[0]);
+    for(let i=0;i<tempPoly.length-1;i++){
+        tempA = tempPoly[i].x * tempPoly[i+1].y;
+        tempB = tempPoly[i+1].x * tempPoly[i].y;
         result += tempA-tempB;
     }
     return result*(0.5);
