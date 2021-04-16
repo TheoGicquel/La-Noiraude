@@ -90,26 +90,65 @@ function segmentConstructor(pointA,pointB){
 /**
 * calculer l'aire du polygone fourni en entrée
 * @param {Array} polygone 
-* @returns {number} Aire obtenu
+* @returns {Number} result Aire obtenue
 */
 function getAirePolygone(polygone){
-    let result=0.0,tempA=0.0,tempB=0.0,incremented=0,previousResult=1;
-    let i;
-    let nbrValeursPolygone=polygone.length-1;
-    for(i=0;i<nbrValeursPolygone-1;i++){
-        
-
-        tempA = polygone[i].x * polygone[incremented].y;
-        tempB = polygone[incremented].x * polygone[i].y;
-
+    let result=0;
+    let tempPoly = polygone;
+    tempPoly.push(polygone[0]);
+    for(let i=0;i<tempPoly.length-1;i++){
+        tempA = tempPoly[i].x * tempPoly[i+1].y;
+        tempB = tempPoly[i+1].x * tempPoly[i].y;
         result += tempA-tempB;
-        result = result*previousResult;
-        previousResult=result;
     }
-    tempA = polygone[nbrValeursPolygone].x * polygone[0].y;
-    tempB = polygone[0].x * polygone[nbrValeursPolygone].y;
-    result += tempA-tempB;
-    result = result*previousResult
     return result*(0.5);
 }
 
+
+
+
+function getCentreGravite(polygone){
+    let centreGrav = {};
+    let aire=getAirePolygone(polygone);
+    centreGrav.x = getAbscisseGravite(polygone,aire);
+    centreGrav.y = getOrdonneeGravite(polygone,aire);
+    return centreGrav;
+}
+
+function getAbscisseGravite(polygone, aire){
+    let result=0;
+    let temPoly=polygone;
+    let tempA;
+    let tempB;
+    let tempAdd;
+    temPoly.push(polygone[0]);
+
+    for(let i=0;i<temPoly.length-1;i++){
+        tempA = temPoly[i].x * temPoly[i+1].y;
+        tempB = temPoly[i+1].x * temPoly[i].y;
+        tempAdd = temPoly[i].x + temPoly[i+1].x;
+        tempC = tempA-tempB;
+        result+=(tempAdd)*(tempA-tempB);
+    }
+    result = result*(1/(6*aire));
+    return result;
+}
+
+function getOrdonneeGravite(polygone, aire){
+    let result=0;
+    let temPoly=polygone;
+    let tempA;
+    let tempB;
+    let tempAdd;
+    temPoly.push(polygone[0]);
+
+    for(let i=0;i<temPoly.length-1;i++){
+        tempA = temPoly[i].x * temPoly[i+1].y;
+        tempB = temPoly[i+1].x * temPoly[i].y;
+        tempAdd = temPoly[i].y + temPoly[i+1].y;
+        tempC = tempA-tempB;
+        result+=(tempAdd)*(tempA-tempB);
+    }
+    result = result*(1/(6*aire));
+    return result;
+}
