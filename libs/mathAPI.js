@@ -100,7 +100,6 @@ function getAirePolygone(polygone){
 function getCentreGravite(polygone){
     let centreGrav = {};
     let aire=getAirePolygone();
-
     centreGrav.x = getAbscisseGravite(polygone,aire);
     centreGrav.y = getOrdonneeGravite(polygone,aire);
     return centreGrav;
@@ -108,14 +107,21 @@ function getCentreGravite(polygone){
 
 function getAbscisseGravite(polygone, aire){
     let result, i;
+    let temPoly=polygone;
+    let tempA;
+    let tempB;
+    let tempAdd;
+    temPoly.push(polygone[0]);
 
-    for(i=0;i<polygone.length-1;i++){
-     result+=(polygone[i].y+polygone[i+1].y)*((polygone[i].x*polygone[i+1].y)-(polygone[i+1].x*polygone[i].y));
-     console.log(result);
+    for(i=0;i<temPoly.length-1;i++){
+        tempA = temPoly[i].x * temPoly[i+1].y;
+        console.log(tempA)
+        tempB = temPoly[i+1].x * temPoly[i].y;
+        tempAdd = temPoly[i].x + temPoly[i+1].x;
+        result+=(tempAdd)*(tempA -tempB);
+        console.log(result);
     }
-
     result = result*(1/(6*aire));
     return result;
-
 }
 
