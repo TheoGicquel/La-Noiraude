@@ -90,7 +90,7 @@ function getAirePolygone(polygone){
 
 function getCentreGravite(polygone){
     let centreGrav = {};
-    let aire=getAirePolygone();
+    let aire=getAirePolygone(polygone);
     centreGrav.x = getAbscisseGravite(polygone,aire);
     centreGrav.y = getOrdonneeGravite(polygone,aire);
     return centreGrav;
