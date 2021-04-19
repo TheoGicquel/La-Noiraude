@@ -56,7 +56,7 @@ function getAngleSegment(vecA,vecB){
 * @param {point} G point
 * @returns {boolean} appartenance
 */
-function GetAppartenancePointPolygone ( polygone,point){
+function getAppartenancePointPolygone ( polygone,point){
     let temPoly = polygone;
     temPoly.push(temPoly[0]);
     let result=0;
@@ -152,3 +152,13 @@ function getOrdonneeGravite(polygone, aire){
     result = result*(1/(6*aire));
     return result;
 }
+
+module.exports.getVectorNorme = getVectorNorme;
+module.exports.getVectorCoords = getVectorCoords;
+module.exports.getProduitScalaire = getProduitScalaire;
+module.exports.getAngleSegment = getAngleSegment;
+module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
+module.exports.getAirePolygone = getAirePolygone;
+module.exports.getAbscisseGravite = getAbscisseGravite;
+module.exports.getOrdonneeGravite = getOrdonneeGravite;
+module.exports.getCentreGravite = getCentreGravite;
