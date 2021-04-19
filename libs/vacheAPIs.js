@@ -15,51 +15,23 @@ exports.vacheEnclos = enclos;
 * @param {number} coordX Cordonnees x du nouveau piquet
 * @param {number} coordY Cordonnees y du nouveau piquet
 */
-function ajoutPiquet(coordX,coordY){
+exports.ajoutPiquet = function ajoutPiquet(tableau, coordX,coordY){
     let nouveauPiquet = {
         "x": coordX,
         "y": coordY
       }
-    enclos.push(nouveauPiquet);
+    tableau.push(nouveauPiquet);
+}
+
+exports.enlevementPiquet = function enlevementPiquet(tableau,index){
+    tableau.pop[index];
+}
+
+exports.razPiquets = function razPiquet(tableau){
+    tableau=[];
 }
 
 /* Batterie de tests **/
-function lancementTests(){
-    ajoutPiquet(-1,1);
-    ajoutPiquet(-1,-1);
-    ajoutPiquet(1,-1);
-    ajoutPiquet(1,1);
-    let aire = 4;
-    let centreGrav = { "x":0, "y":0};
-    let vacheInterieur = true;
-
-
-    testEnclos(enclos,aire,centreGrav,vacheInterieur);
-
-    enclos =[];
-
-    ajoutPiquet(-16.6, -20.1);
-    ajoutPiquet(-12.6, -18.6);
-    ajoutPiquet(-11.6, -16.6);
-    ajoutPiquet(-15.1, -15.1);
-    aire = 13.125;
-    centreGrav = { "x":-14.226, "y":-17.555};
-    vacheInterieur = true;
-
-    testEnclos(enclos,aire,centreGrav,vacheInterieur);
-    enclos=[]; // remise à zéro de l'enclos
-
-    ajoutPiquet(-1.1, -1.5);
-    ajoutPiquet(2.1, 3.012);
-    ajoutPiquet(5.6, -1.21);
-    ajoutPiquet(1.97, 4.07);
-
-    aire = 3.563;
-    centreGrav = { "x":1.978, "y":1.903};
-    vacheInterieur = false;
-    testEnclos(enclos,aire,centreGrav,vacheInterieur);
-
-}
 
 /**
  Ajoute un
@@ -71,4 +43,11 @@ function lancementTests(){
 */
 function testEnclos(enclosEntree,aireAttendue,centreGravAttendu,presenceAttendue){
     
+}
+
+exports.lancement = function(){
+    let resultat = {};
+    resultat.centregrav = getCentreGravite(enclos);
+    resultat.presenceVache = GetAppartenancePointPolygone(enclos,resultat.centregrav); 
+    return resultat;
 }
