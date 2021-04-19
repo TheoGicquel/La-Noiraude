@@ -15,7 +15,7 @@ exports.vacheEnclos = enclos;
 * @param {number} coordX Cordonnees x du nouveau piquet
 * @param {number} coordY Cordonnees y du nouveau piquet
 */
-function ajoutPiquet(tableau, coordX,coordY){
+exports.ajoutPiquet = function ajoutPiquet(tableau, coordX,coordY){
     let nouveauPiquet = {
         "x": coordX,
         "y": coordY
@@ -23,11 +23,11 @@ function ajoutPiquet(tableau, coordX,coordY){
     tableau.push(nouveauPiquet);
 }
 
-function enlevementPiquet(tableau,index){
+exports.enlevementPiquet = function enlevementPiquet(tableau,index){
     tableau.pop[index];
 }
 
-function razPiquet(tableau){
+exports.razPiquets = function razPiquet(tableau){
     tableau=[];
 }
 
