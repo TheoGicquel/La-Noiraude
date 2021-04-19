@@ -1,21 +1,21 @@
-const { vacheEnclos } = require("../libs/vacheAPIs");
+const vacheAPIs = require("../libs/vacheAPIs");
 
-let debugstring = "this is a debug string";
 
 module.exports = {
     execute(message,args){
-        if (!args.length) {
+        if (args.length != 2) {
             return message.channel.send(
-                `Aucun argument saisi !, ${message.author}!`);
+                `Nombre d'arguments incorrects !, ${args.length} au lieu de 2`);
         }
         else switch (args[0]) {
             case "a":
-                return message.channel.send("ajouter");
+                //return message.channel.send("ajouter");
+               // vacheAPIs.ajoutPiquet(,args[1]);
                 break;
+
             case "r":
                 return message.channel.send("retirer");
-            case "raz":
-                return message.channel.send("remise a zéro !");
+                break;
 
             default:
                 return message.channel.send(
