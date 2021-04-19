@@ -5,10 +5,11 @@
 
 const Discord = require('discord.js')
 bot = new Discord.Client();
-var vache = require('./libs/vacheAPIs.js');
+const vache = require('./libs/vacheAPIs.js');
 var mathAPI = require('./libs/mathAPI.js');
 
-var enclosVache={};
+global.enclosVache=[];
+vache.ajoutPiquet(enclosVache,2,2);
 
 config = require('./config.json') //On appelle le fichier de configuration
 
