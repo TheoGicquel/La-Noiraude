@@ -1,26 +1,26 @@
 /** @file mathAPI.js */
-
+module.exports = {
 /**
  Retourne la norme du vecteur fourni en entrée
 * @param {number} vecX Cordonnees x du vecteur
 * @param {number} vecY Cordonnees y du vecteur
 * @returns {number} Norme obtenue
 */
-function getVectorNorme(vecteur){
+getVectorNorme : function(vecteur){
     return Math.sqrt(Math.pow(vecteur.x,2)+Math.pow(vecteur.y,2));
-}
+},
 
 /**
 * Retourne les coordonnées du vecteur d'entree
 * @param {Vector}  input vecteur d'entree
-* @returns {Object} outputVector coordonnées du vecteur
+* @returns {Object}  outputVector coordonnées du vecteur
 */
-function getVectorCoords(input){
+getVectorCoords : function(input){
     let outputVector = {x:undefined,y:undefined}
     outputVector.x = input.xb  - input.xa;
     outputVector.y = input.yb - input.ya;
     return outputVector;
-}
+},
 
 /**
 * Obtenir le produit scalaire de deux vecteur d'entree
@@ -28,11 +28,11 @@ function getVectorCoords(input){
 * @param {vector} v vecteur
 * @returns {number} produit scalaire de sortie
 */
-function getProduitScalaire(u,v){
+getProduitScalaire : function(u,v){
     let tempx = u.x * v.x;
     let tempy = u.y * v.y;
     return tempx+tempy;
-}
+},
 
 /**
 * calculer l'angle entre les segments de droite 
@@ -40,7 +40,7 @@ function getProduitScalaire(u,v){
 * @param {Segment} vecB
 * @returns {number} produit scalaire de sortie
 */
-function getAngleSegment(vecA,vecB){
+getAngleSegment : function(vecA,vecB){
     if(vecA.hasOwnProperty("xa")){
         throw "vecteur (x,y) attendu au lieu de segment";
     }
@@ -48,7 +48,7 @@ function getAngleSegment(vecA,vecB){
     let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
     return Math.acos(tempA/tempB);
-}
+},
 
 /**
 * retourne vrai si G appartient à P et faux sinon
@@ -56,7 +56,7 @@ function getAngleSegment(vecA,vecB){
 * @param {point} G point
 * @returns {boolean} appartenance
 */
-function GetAppartenancePointPolygone ( polygone,point){
+GetAppartenancePointPolygone : function( polygone,point){
     let temPoly = polygone;
     temPoly.push(temPoly[0]);
     let result=0;
@@ -80,19 +80,19 @@ function GetAppartenancePointPolygone ( polygone,point){
         return false;
     }
 
-}
+},
 
-function segmentConstructor(pointA,pointB){
+segmentConstructor : function(pointA,pointB){
     let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yb:pointB.y}
     return output;
-}
+},
 
 /**
 * calculer l'aire du polygone fourni en entrée
 * @param {Array} polygone 
 * @returns {Number} result Aire obtenue
 */
-function getAirePolygone(polygone){
+getAirePolygone : function(polygone){
     let result=0;
     let tempPoly = polygone;
     tempPoly.push(polygone[0]);
@@ -102,20 +102,20 @@ function getAirePolygone(polygone){
         result += tempA-tempB;
     }
     return result*(0.5);
-}
+},
 
 
 
 
-function getCentreGravite(polygone){
+getCentreGravite  : function(polygone){
     let centreGrav = {};
     let aire=getAirePolygone(polygone);
     centreGrav.x = getAbscisseGravite(polygone,aire);
     centreGrav.y = getOrdonneeGravite(polygone,aire);
     return centreGrav;
-}
+},
 
-function getAbscisseGravite(polygone, aire){
+getAbscisseGravite : function (polygone, aire){
     let result=0;
     let temPoly=polygone;
     let tempA;
@@ -132,9 +132,9 @@ function getAbscisseGravite(polygone, aire){
     }
     result = result*(1/(6*aire));
     return result;
-}
+},
 
-function getOrdonneeGravite(polygone, aire){
+getOrdonneeGravite : function(polygone, aire){
     let result=0;
     let temPoly=polygone;
     let tempA;
@@ -151,4 +151,5 @@ function getOrdonneeGravite(polygone, aire){
     }
     result = result*(1/(6*aire));
     return result;
+}
 }

@@ -4,7 +4,9 @@
 */
 
 const Discord = require('discord.js')
-bot = new Discord.Client(),
+bot = new Discord.Client();
+var vacheAPIs = require('./libs/vacheAPIs');
+var enclosVache={};
 
 config = require('./config.json') //On appelle le fichier de configuration
 
