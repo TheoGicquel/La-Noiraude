@@ -82,6 +82,12 @@ function GetAppartenancePointPolygone ( polygone,point){
 
 }
 
+/**
+* retourne vrai si G appartient à P et faux sinon
+* @param {point} PointA point
+* @param {point} PointB point
+* @returns {Object} output segment composé de 2 points
+*/
 function segmentConstructor(pointA,pointB){
     let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yb:pointB.y}
     return output;
@@ -105,7 +111,11 @@ function getAirePolygone(polygone){
 }
 
 
-
+/**
+* obtenir le centre gravité avec ses coordonées
+* @param {Array} polygone 
+* @returns {Object} centreGrav objet possédant des coordonnées
+*/
 
 function getCentreGravite(polygone){
     let centreGrav = {};
@@ -114,6 +124,13 @@ function getCentreGravite(polygone){
     centreGrav.y = getOrdonneeGravite(polygone,aire);
     return centreGrav;
 }
+
+/**
+* Donne l'avscisse du centre de gravité de l'enclos
+* @param {Array} polygone Met en entré l'enclos
+* @param {Number} aire Met en entré l'aire de l'enclos
+* @returns {Number} result abscisse du centre de gravité du polygone
+*/
 
 function getAbscisseGravite(polygone, aire){
     let result=0;
@@ -134,6 +151,12 @@ function getAbscisseGravite(polygone, aire){
     return result;
 }
 
+/**
+* Donne l'ordonnée du centre de gravité de l'enclos
+* @param {Array} polygone Met en entré l'enclos
+* @param {Number} aire Met en entré l'aire de l'enclos
+* @returns {Number} result ordonée du centre de gravité du polygone
+*/
 function getOrdonneeGravite(polygone, aire){
     let result=0;
     let temPoly=polygone;
