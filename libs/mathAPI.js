@@ -126,7 +126,7 @@ function getCentreGravite(polygone){
 }
 
 /**
-* Donne l'avscisse du centre de gravité de l'enclos
+* Donne l'abscisse du centre de gravité de l'enclos
 * @param {Array} polygone Met en entré l'enclos
 * @param {Number} aire Met en entré l'aire de l'enclos
 * @returns {Number} result abscisse du centre de gravité du polygone
