@@ -114,7 +114,7 @@ function getAirePolygone(polygone){
 /**
 * obtenir le centre gravité avec ses coordonées
 * @param {Array} polygone 
-* @returns {Object} centreGrav objet possédant des coordonnées
+* @returns {Object} centreGrav objet de coordonnées (x,y)
 */
 
 function getCentreGravite(polygone){
