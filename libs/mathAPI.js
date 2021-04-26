@@ -154,7 +154,7 @@ function getAbscisseGravite(polygone, aire){
 /**
 * Donne l'ordonnée du centre de gravité de l'enclos
 * @param {Array} polygone Met en entré l'enclos
-* @param {Number} aire Met en entré l'aire de l'enclos
+* @param {Number} aire l'aire de l'enclos en saisie en entrée
 * @returns {Number} result ordonée du centre de gravité du polygone
 */
 function getOrdonneeGravite(polygone, aire){
