@@ -1,5 +1,5 @@
-const vacheAPIs = require("../libs/vacheAPIs");
-
+let vache = require('../libs/vacheAPIs.js');
+let mathAPI = require('../libs/mathAPI.js');
 
 module.exports = {
     execute(message,args){
@@ -10,7 +10,7 @@ module.exports = {
         else switch (args[0]) {
             case "a":
                 //return message.channel.send("ajouter");
-                vacheAPIs.ajoutPiquet(global.enclosVache,args[1]);
+                vache.ajoutPiquet(global.enclosVache,args[1],args[2]);
                 break;
 
             case "r":
@@ -22,6 +22,10 @@ module.exports = {
                     "j'ai mal saisi votre premier argument, faites `!aide`");
                 break;
         }
+
+        message.channel.send(JSON.stringify(global.enclosVache));
+        return message.channel.send("done !");
+
     },
     name: "enclos",
 };
