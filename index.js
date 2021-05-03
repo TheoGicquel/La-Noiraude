@@ -5,8 +5,14 @@
 
 const Discord = require('discord.js')
 bot = new Discord.Client();
-const vache = require('./libs/vacheAPIs.js');
-var mathAPI = require('./libs/mathAPI.js');
+
+bot.on("error", (e) => console.error(e));
+bot.on("warn", (e) => console.warn(e));
+//bot.on("debug", (e) => console.info(e));
+
+
+let vache = require('./libs/vacheAPIs.js');
+let mathAPI = require('./libs/mathAPI.js');
 
 global.enclosVache=[];
 vache.ajoutPiquet(enclosVache,2,2);
