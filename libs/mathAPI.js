@@ -1,6 +1,20 @@
 /** @file mathAPI.js */
 
 /**
+ * Retourne un objet de point selon les coordonnées
+ * fournies en entrée
+ * @param {Number} coordX 
+ * @param {Number} coordY 
+ * @returns {Object} point
+ */
+function pointConstructor(coordX, coordY){
+    let point = {
+        "x": coordX,
+        "y": coordY
+      }
+      return point;
+}
+/**
  Retourne la norme du vecteur fourni en entrée
 * @param {number} vecX Cordonnees x du vecteur
 * @param {number} vecY Cordonnees y du vecteur
@@ -162,3 +176,5 @@ module.exports.getAirePolygone = getAirePolygone;
 module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.getCentreGravite = getCentreGravite;
+module.exports.pointConstructor = pointConstructor;
+module.exports.checkNumerique = checkNumerique;
