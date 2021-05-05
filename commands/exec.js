@@ -1,24 +1,27 @@
 let vache = require('../libs/vacheAPIs.js');
 let mathAPI = require('../libs/mathAPI.js');
 let noiraude = require('../libs/noiraude');
-const sentSignal = "Lancement"
+let io = require('../libs/io');
+
+const sentSignal = "Calcul en cours..."
 
 module.exports = {
     execute(message,args){
         if(noiraude.enclos.length<3){
             return message.reply("Définissez l'enclos d'abord !");
         }
-        message.channel.send(noiraude.enclos.length);
         message.channel.send(sentSignal);
         let aire = mathAPI.getAirePolygone(noiraude.enclos);
-        message.channel.send("aire obtenue : " + aire);
-        
-        /*
-        let centreGravite = mathAPI.getCentreGravite(noiraude.enclos);
-        message.channel.send("centre de gravité  : " + centreGravite);
-        */
+        let centreGravite = mathAPI.getCentreGravite(noiraude.enclos,aire);
+        //FIXME Valeur d'appartennance non valide
+        let appartenance = mathAPI.getAppartenancePointPolygone(noiraude.enclos,centreGravite);
 
-        return message.channel.send("done !");
+        message.channel.send("aire obtenue : " + aire);
+        message.channel.send("centre de gravité  : " +  io.jsonPrettifier(centreGravite));
+        message.channel.send("Valeur appartenance :");
+        message.channel.send("**" + appartenance + "**");
+
+        return message.channel.send("calculs terminés !");
 
     },
     name: "lancement",
