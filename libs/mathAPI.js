@@ -177,4 +177,3 @@ module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.getCentreGravite = getCentreGravite;
 module.exports.pointConstructor = pointConstructor;
-module.exports.checkNumerique = checkNumerique;
