@@ -64,6 +64,13 @@ function getAngleSegment(vecA,vecB){
     return Math.acos(tempA/tempB);
 }
 
+
+/** //FIXME Modifs a apporter
+* - réaliser le calcul du déterminant
+* - modifier la somme pour prendre en compte le signe de l'angle
+* - modifier la condition d'appartenance : si la somme des angles vaut zéro, le point n'appartient pas au polygone
+*/
+
 /**
 * retourne vrai si G appartient à P et faux sinon
 * @param {polygone} P polygone
