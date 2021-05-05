@@ -12,7 +12,7 @@ var vache = require('./libs/vacheAPIs.js');
 var mathAPI = require('./libs/mathAPI.js');
 var config = require('./config.json');
 var fs = require("fs")
-
+var noiraude = require('./libs/noiraude');
 bot.on("error", (e) => console.error(e));
 bot.on("warn", (e) => console.warn(e));
 //bot.on("debug", (e) => console.info(e));
