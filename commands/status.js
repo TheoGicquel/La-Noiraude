@@ -1,14 +1,8 @@
+let noiraude = require('../libs/noiraude');
+let io = require('../libs/io')
 module.exports = {
     execute(message,args){
-        console.log(global.enclosVache);
-        message.channel.send(JSON.stringify(global.enclosVache));
-        /*
-        for(let i=0;i<enclosVache.length;i++){
-            
-            message.channel.send(global.enclosVache[i]);
-        }
-        */
-        
+        message.channel.send(io.jsonPrettifier(noiraude.enclos));
     },
     name: "etat",
 };
