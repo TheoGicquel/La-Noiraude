@@ -17,8 +17,6 @@ bot.on("error", (e) => console.error(e));
 bot.on("warn", (e) => console.warn(e));
 //bot.on("debug", (e) => console.info(e));
 
-global.enclosVache=[];
-vache.ajoutPiquet(enclosVache,2,2);
 
 bot.login(config.tokenBot) //Connexion au bot avec le token du fichier de config
 bot.commands = new Discord.Collection() //Stocke les commandes dans le bot
