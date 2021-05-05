@@ -4,11 +4,11 @@
  * @fileoverview Commande de remise à zéro de l'enclos
  * @author Theo Gicquel <theo.gicquel.work@gmail.com>
  */
+ let noiraude = require('../libs/noiraude');
 
 module.exports = {
     execute(message,args){
-        global.enclosVache={};
-        message.channel.send(JSON.stringify(global.enclosVache));
+        noiraude.enclos={};
         return message.channel.send("Enclos effacé !");
     },
     name: "raz",
