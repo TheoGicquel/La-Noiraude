@@ -95,7 +95,11 @@ function getAppartenancePointPolygone ( polygone,point){
     }
 
 }
-
+/**
+ * retourne un segment a partir de deux points fournis en entréee
+ * @param  {Object} pointA
+ * @param  {Object} pointB
+ */
 function segmentConstructor(pointA,pointB){
     let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yb:pointB.y}
     return output;
@@ -120,15 +124,23 @@ function getAirePolygone(polygone){
 
 
 
-
-function getCentreGravite(polygone){
+/**
+ * Calcul du centre de gravité d'un polygone
+ * @param  {Object} polygone
+ * @param  {Number} aire
+ */
+function getCentreGravite(polygone,aire){
     let centreGrav = {};
-    let aire=getAirePolygone(polygone);
     centreGrav.x = getAbscisseGravite(polygone,aire);
     centreGrav.y = getOrdonneeGravite(polygone,aire);
     return centreGrav;
 }
 
+/**
+ * Obtention de l'abscice du centre de gravité
+ * @param  {Object} polygone
+ * @param  {Number} aire
+ */
 function getAbscisseGravite(polygone, aire){
     let result=0;
     let temPoly=polygone;
@@ -148,6 +160,11 @@ function getAbscisseGravite(polygone, aire){
     return result;
 }
 
+/**
+ * Obtention de l'abscice du centre de gravité
+ * @param  {Object} polygone
+ * @param  {Number} aire
+ */
 function getOrdonneeGravite(polygone, aire){
     let result=0;
     let temPoly=polygone;
@@ -167,13 +184,14 @@ function getOrdonneeGravite(polygone, aire){
     return result;
 }
 
+// Nécessaires
+module.exports.getAirePolygone = getAirePolygone;
+module.exports.getCentreGravite = getCentreGravite;
+module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
 module.exports.getVectorNorme = getVectorNorme;
 module.exports.getVectorCoords = getVectorCoords;
 module.exports.getProduitScalaire = getProduitScalaire;
 module.exports.getAngleSegment = getAngleSegment;
-module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
-module.exports.getAirePolygone = getAirePolygone;
 module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
-module.exports.getCentreGravite = getCentreGravite;
 module.exports.pointConstructor = pointConstructor;
