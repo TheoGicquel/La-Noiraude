@@ -41,7 +41,6 @@ for (const file of commandFiles){
 bot.on('message', message => {
     //Si le message != "Par défaut" et qu'il provient d'un bot rien ne se passe
     if (message.type !== 'DEFAULT' || message.author.bot){
-        console.log("lecture message");
         return;
     }
 
