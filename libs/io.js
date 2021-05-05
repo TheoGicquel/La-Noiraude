@@ -10,7 +10,6 @@
  */
 function jsonPrettifier(input){
     input=JSON.stringify(input,null,"\t");
-    console.log(input);
     return input;
 }
 
