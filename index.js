@@ -24,7 +24,7 @@ bot.commands = new Discord.Collection() //Stocke les commandes dans le bot
 // actions effectuées au lancement
 bot.once('ready', () => {
     console.info(`${bot.user.tag} launched`);
-    bot.user.setActivity("`!noiraude` pour afficher les commandes");
+    bot.user.setActivity("`!aide` pour afficher les commandes");
 })
 
 /**
