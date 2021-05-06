@@ -144,10 +144,11 @@ function getCentreGravite(polygone,aire){
 }
 
 /**
- * Obtention de l'abscice du centre de gravité
- * @param  {Object} polygone
- * @param  {Number} aire
- */
+* Donne l'abscisse du centre de gravité du polygone
+* @param {Object} polygone 
+* @param {Number} aire 
+* @returns {Number} result abscisse du centre de gravité du polygone
+*/
 function getAbscisseGravite(polygone, aire){
     let result=0;
     let temPoly=polygone;
@@ -168,9 +169,11 @@ function getAbscisseGravite(polygone, aire){
 }
 
 /**
- * Obtention de l'abscice du centre de gravité
+/*
+ * Obtention de l'abscisse du centre de gravité
  * @param  {Object} polygone
  * @param  {Number} aire
+ * @returns {Number} result abscisse centre de gravité 
  */
 function getOrdonneeGravite(polygone, aire){
     let result=0;
