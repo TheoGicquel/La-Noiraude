@@ -4,7 +4,8 @@
   "description": "le robot discord de calcul de paturage",
   "main": "index.js",
   "scripts": {
-    "test": "node ./index.js"
+    "start": "node ./index.js",
+    "debug": "node --trace-warnings ./index.js"
   },
   "repository": {
     "type": "git",

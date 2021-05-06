@@ -1,6 +1,20 @@
 /** @file mathAPI.js */
 
 /**
+ * Retourne un objet de point selon les coordonnées
+ * fournies en entrée
+ * @param {Number} coordX 
+ * @param {Number} coordY 
+ * @returns {Object} point
+ */
+function pointConstructor(coordX, coordY){
+    let point = {
+        "x": coordX,
+        "y": coordY
+      }
+      return point;
+}
+/**
  Retourne la norme du vecteur fourni en entrée
 * @param {number} vecX Cordonnees x du vecteur
 * @param {number} vecY Cordonnees y du vecteur
@@ -50,13 +64,20 @@ function getAngleSegment(vecA,vecB){
     return Math.acos(tempA/tempB);
 }
 
+
+/** //FIXME Modifs a apporter
+* - réaliser le calcul du déterminant
+* - modifier la somme pour prendre en compte le signe de l'angle
+* - modifier la condition d'appartenance : si la somme des angles vaut zéro, le point n'appartient pas au polygone
+*/
+
 /**
 * retourne vrai si G appartient à P et faux sinon
 * @param {polygone} P polygone
 * @param {point} G point
 * @returns {boolean} appartenance
 */
-function GetAppartenancePointPolygone ( polygone,point){
+function getAppartenancePointPolygone ( polygone,point){
     let temPoly = polygone;
     temPoly.push(temPoly[0]);
     let result=0;
@@ -81,13 +102,11 @@ function GetAppartenancePointPolygone ( polygone,point){
     }
 
 }
-
 /**
-* retourne vrai si G appartient à P et faux sinon
-* @param {point} PointA point
-* @param {point} PointB point
-* @returns {Object} output segment composé de 2 points
-*/
+ * retourne un segment a partir de deux points fournis en entréee
+ * @param  {Object} pointA
+ * @param  {Object} pointB
+ */
 function segmentConstructor(pointA,pointB){
     let output={xa:pointA.x, ya:pointA.y, xb:pointB.x, yb:pointB.y}
     return output;
@@ -111,27 +130,25 @@ function getAirePolygone(polygone){
 }
 
 
-/**
-* obtenir le centre gravité avec ses coordonées
-* @param {Array} polygone 
-* @returns {Object} centreGrav objet de coordonnées (x,y)
-*/
 
-function getCentreGravite(polygone){
+/**
+ * Calcul du centre de gravité d'un polygone
+ * @param  {Object} polygone
+ * @param  {Number} aire
+ */
+function getCentreGravite(polygone,aire){
     let centreGrav = {};
-    let aire=getAirePolygone(polygone);
     centreGrav.x = getAbscisseGravite(polygone,aire);
     centreGrav.y = getOrdonneeGravite(polygone,aire);
     return centreGrav;
 }
 
 /**
-* Donne l'abscisse du centre de gravité de l'enclos
-* @param {Array} polygone Met en entré l'enclos
-* @param {Number} aire Met en entré l'aire de l'enclos
+* Donne l'abscisse du centre de gravité du polygone
+* @param {Object} polygone 
+* @param {Number} aire 
 * @returns {Number} result abscisse du centre de gravité du polygone
 */
-
 function getAbscisseGravite(polygone, aire){
     let result=0;
     let temPoly=polygone;
@@ -152,11 +169,12 @@ function getAbscisseGravite(polygone, aire){
 }
 
 /**
-* Donne l'ordonnée du centre de gravité de l'enclos
-* @param {Array} polygone Met en entré l'enclos
-* @param {Number} aire l'aire de l'enclos en saisie en entrée
-* @returns {Number} result ordonée du centre de gravité du polygone
-*/
+/*
+ * Obtention de l'abscisse du centre de gravité
+ * @param  {Object} polygone
+ * @param  {Number} aire
+ * @returns {Number} result abscisse centre de gravité 
+ */
 function getOrdonneeGravite(polygone, aire){
     let result=0;
     let temPoly=polygone;
@@ -175,3 +193,15 @@ function getOrdonneeGravite(polygone, aire){
     result = result*(1/(6*aire));
     return result;
 }
+
+// Nécessaires
+module.exports.getAirePolygone = getAirePolygone;
+module.exports.getCentreGravite = getCentreGravite;
+module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
+module.exports.getVectorNorme = getVectorNorme;
+module.exports.getVectorCoords = getVectorCoords;
+module.exports.getProduitScalaire = getProduitScalaire;
+module.exports.getAngleSegment = getAngleSegment;
+module.exports.getAbscisseGravite = getAbscisseGravite;
+module.exports.getOrdonneeGravite = getOrdonneeGravite;
+module.exports.pointConstructor = pointConstructor;
