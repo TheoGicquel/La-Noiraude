@@ -8,14 +8,14 @@ var vector = {
 };
 
 /** Tableau de stockage des piquets définissant l'enclos*/
-let enclos = []
-exports.vacheEnclos = enclos;
+let enclos = [];
+
 /**
  Ajoute un piquet dans un nouveau dans le tableau dédié à l'enclos
 * @param {number} coordX Cordonnees x du nouveau piquet
 * @param {number} coordY Cordonnees y du nouveau piquet
 */
-exports.ajoutPiquet = function ajoutPiquet(tableau, coordX,coordY){
+function ajoutPiquet(tableau, coordX,coordY){
     let nouveauPiquet = {
         "x": coordX,
         "y": coordY
@@ -23,11 +23,11 @@ exports.ajoutPiquet = function ajoutPiquet(tableau, coordX,coordY){
     tableau.push(nouveauPiquet);
 }
 
-exports.enlevementPiquet = function enlevementPiquet(tableau,index){
+function enlevementPiquet(tableau,index){
     tableau.pop[index];
 }
 
-exports.razPiquets = function razPiquet(tableau){
+function razPiquet(tableau){
     tableau=[];
 }
 
@@ -45,9 +45,15 @@ function testEnclos(enclosEntree,aireAttendue,centreGravAttendu,presenceAttendue
     
 }
 
-exports.lancement = function(){
+function lancement(){
     let resultat = {};
     resultat.centregrav = getCentreGravite(enclos);
     resultat.presenceVache = GetAppartenancePointPolygone(enclos,resultat.centregrav); 
     return resultat;
 }
+
+module.exports.enclos = enclos;
+module.exports.ajoutPiquet = ajoutPiquet;
+module.exports.enlevementPiquet = enlevementPiquet;
+module.exports.razPiquet = razPiquet;
+module.exports.lancement = lancement;

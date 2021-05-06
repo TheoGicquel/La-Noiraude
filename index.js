@@ -1,12 +1,22 @@
-/** 
- * @file index.js 
- * Racine du robot discord "la noiraude"
-*/
-
+/**
+ * @file index.js
+ * @requires discord.js
+ * @fileoverview Racine du robot discord
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
+ * @author Julien Mocquet <email>
+ */
+/** Importation librairies */
 const Discord = require('discord.js')
-bot = new Discord.Client(),
+bot = new Discord.Client();
+var vache = require('./libs/vacheAPIs.js');
+var mathAPI = require('./libs/mathAPI.js');
+var config = require('./config.json');
+var fs = require("fs")
+var noiraude = require('./libs/noiraude');
+bot.on("error", (e) => console.error(e));
+bot.on("warn", (e) => console.warn(e));
+//bot.on("debug", (e) => console.info(e));
 
-config = require('./config.json') //On appelle le fichier de configuration
 
 bot.login(config.tokenBot) //Connexion au bot avec le token du fichier de config
 bot.commands = new Discord.Collection() //Stocke les commandes dans le bot
@@ -17,48 +27,50 @@ bot.once('ready', () => {
     bot.user.setActivity("Appeler son médecin");
 })
 
-const fs = require("fs") //Module d'accès au fichier (Déjà préinstallé avec Nodejs)
-
-//Stockage dans un tableau tout les fichiers javascript dans ./commands 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); 
-
-// Importation des commandes dans le bot
+/**
+ * importation des modules de commandes présents dans `./commands/`
+ *  a la collection de commandes du bots
+ */
+ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); 
 for (const file of commandFiles){
-    //command = un fichier de commandes dont on récupère le contenu + on va chercher le fichier $file
-    const command = require(`./commands/${file}`) 
-    // définition de commande par nom et  action
-    bot.commands.set(command.name, command) 
+    const command = require(`./commands/${file}`);
+    bot.commands.set(command.name, command);
 }
 
-
-
-// Evenement de message addressé au bot
+/** evenement asynchrone effectue quand un message est envoyé dans un salon */
 bot.on('message', message => {
-
     //Si le message != "Par défaut" et qu'il provient d'un bot rien ne se passe
-    if (message.type !== 'DEFAULT' || message.author.bot) return;
+    if (message.type !== 'DEFAULT' || message.author.bot){
+        return;
+    }
 
-    // récupération des arguments dans le message
+    /** Parsage message saisi
+     *  - separation 
+     */
     const args = message.content.split(/ +/)
     //On récupère la commande et la vérifie
  
     // parsage des majuscules en minuscules
     const commandName = args.shift().toLowerCase()
 
-    // Si la commande ne commence pas par le préfix
+    // Si la commande ne commence pas par le prefixe
     if (!commandName.startsWith(config.prefix)) return 
 
     //La "commandS" est recherchée en fonction du commandName duquel on a retiré le préfixe
     const command = bot.commands.get(commandName.slice(config.prefix.length)) 
-    if (!command)// Si c'est une commande qui n'existe pas
-    {message.reply("Je ne sais pas faire ça, je vais demander de l'aide à mon médecin"); return} 
-
+    
+    // Si c'est une commande qui n'existe pas
+    if(!command){
+        message.reply("Je ne sais pas faire ça, je vais demander de l'aide à mon médecin");
+        return;
+    } 
+    
     // execution de la commande 
     try{
         command.execute(message, args)
     }
     catch (error){
         console.error(error);
-        message.reply("Oops je crois que quelque chose c'est mal passé"); //Réponse en cas d'erreur
+        message.reply("Oops je crois que quelque chose c'est mal passé");
     }
 })
