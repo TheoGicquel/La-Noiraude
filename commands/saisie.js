@@ -12,8 +12,6 @@ let saisieHelpText="Format :\n `!saisie x,y:x,y etc...`"
 
 module.exports = {
     execute(message,args){
-        console.log("Args : ");
-        console.log(args);
         switch (args.length) {
             case 1:
                 noiraude.enclos=io.saisieParser(args[0]);
