@@ -51,12 +51,12 @@ let listeEssai=`\t\`1\` (-1 , 1) (-1 , -1) (1 , -1) (1 , 1) \n
          message.channel.send(jeu)
          message.channel.send("intégration de l'enclos...");
          noiraude.enclos=io.saisieParser(jeu);
-         message.channel.send("`!lancement` pour lancer les calculs");
-         message.channel.send("`!etat` pour visualiser l'enclos");
          message.channel.send("aire attendue: "+ aireAttendue);
          message.channel.send("centre de gravité attendu: "+ centreAttendu);
          message.channel.send("présence de vache attendue: "+ presenceAttendue);
-
+         message.channel.send("** Remplissage terminé ! **");
+         message.channel.send("`!lancement` pour lancer les calculs");
+         message.channel.send("`!etat` pour visualiser l'enclos");
 
         }
      },
