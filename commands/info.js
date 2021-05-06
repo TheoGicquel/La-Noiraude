@@ -1,5 +1,6 @@
 /**
- * @file Commande d'affichage des commandes disponibles
+ * @file info.js
+ * @fileoverview Affichage des infos sur la réalisation du robot
  * @author Theo Gicquel 
  */
 

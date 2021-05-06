@@ -1,5 +1,6 @@
 /**
- * @file Commande d'affichage des commandes disponibles
+ * @file aide.js
+ * @fileoverview Commande d'affichage des commandes disponibles
  * @author Theo Gicquel 
  */
 
