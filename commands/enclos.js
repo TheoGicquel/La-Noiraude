@@ -18,7 +18,8 @@ module.exports = {
 
             switch (operation) {
                 case "a":
-                    noiraude.pushEnclos(mathAPI.pointConstructor(pointX,pointY));
+                    let point=mathAPI.pointConstructor(pointX,pointY);
+                    noiraude.enclos.push(point); 
                     message.channel.send("ajout effectué!");
                     break;
 
