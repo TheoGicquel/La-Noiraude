@@ -194,6 +194,18 @@ function getOrdonneeGravite(polygone, aire){
     return result;
 }
 
+/**
+* Obtenir le produit scalaire de deux vecteur d'entree
+* @param {vector} u vecteur
+* @param {vector} v vecteur
+* @returns {number} déterminant des deux vecteurs 
+*/
+function getDeterminant(u,v){
+    let tempx = u.x * v.y;
+    let tempy = u.y * v.x;
+    return tempx-tempy;
+}
+
 // Nécessaires
 module.exports.getAirePolygone = getAirePolygone;
 module.exports.getCentreGravite = getCentreGravite;
@@ -205,3 +217,4 @@ module.exports.getAngleSegment = getAngleSegment;
 module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.pointConstructor = pointConstructor;
+module.exports.getDeterminant = getDeterminant;
