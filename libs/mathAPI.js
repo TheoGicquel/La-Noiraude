@@ -65,12 +65,14 @@ function getAngleSegment(vecA,vecB){
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
     console.log("ACOS :"+Math.acos(tempA/tempB));
     result = Math.acos(tempA/tempB);
-    // Tentative de calcul
+    // On détermine le signe de l'angle qu'on applique a l'angle calculé
     signe =getDeterminant(vecA,vecB);
-    if(signe<0){
+    if(signe<0)
+    {
         return -result;
     }
-    else{
+    else
+    {
         return result
     }
 }
