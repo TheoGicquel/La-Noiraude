@@ -130,6 +130,7 @@ function getAirePolygone(polygone){
         tempB = tempPoly[i+1].x * tempPoly[i].y;
         result += tempA-tempB;
     }
+    result = getValAbsolue(result);
     return result*(0.5);
 }
 /**
