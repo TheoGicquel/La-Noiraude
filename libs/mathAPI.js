@@ -130,8 +130,23 @@ function getAirePolygone(polygone){
     }
     return result*(0.5);
 }
-
-
+/**
+ * Retourne la valeur absolue de la variable donnée en entrée
+ * NOTE: même principe d'utilisation que `Math.abs()`...
+ * @param  {Number} valeur
+ * @returns {Number} Valeur absolue 
+ */
+function getValAbsolue(valeur){
+    console.log("valabs entree :"+valeur);
+    if(valeur<0)
+    {     
+        return -valeur;
+    }
+    else if(valeur>0 || valeur==0)
+    {
+        return valeur;
+    }
+}
 
 /**
  * Calcul du centre de gravité d'un polygone
@@ -221,3 +236,4 @@ module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.pointConstructor = pointConstructor;
 module.exports.getDeterminant = getDeterminant;
+module.exports.getValAbsolue = getValAbsolue;
