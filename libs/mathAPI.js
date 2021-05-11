@@ -196,14 +196,15 @@ function getOrdonneeGravite(polygone, aire){
 
 /**
 * Obtenir le produit scalaire de deux vecteur d'entree
-* @param {vector} u vecteur
-* @param {vector} v vecteur
-* @returns {number} déterminant des deux vecteurs 
+* @param {Object} vecA premier vecteur d'entrée
+* @param {Object} vecB deuxième vecteur d'entrée
+* @returns {Number}  déterminant des deux vecteurs 
 */
-function getDeterminant(u,v){
-    let tempx = u.x * v.y;
-    let tempy = u.y * v.x;
-    return tempx-tempy;
+function getDeterminant(vecA,vecB){
+    let tempx = vecA.x * vecB.y;
+    let tempy = vecA.y * vecB.x;
+    let result = tempx-tempy;
+    return result;
 }
 
 // Nécessaires
