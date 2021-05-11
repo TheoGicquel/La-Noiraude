@@ -78,13 +78,6 @@ function getAngleSegment(vecA,vecB){
 }
 
 
-
-/** //FIXME Modifs a apporter
-* - réaliser le calcul du déterminant
-* - modifier la somme pour prendre en compte le signe de l'angle
-* - modifier la condition d'appartenance : si la somme des angles vaut zéro, le point n'appartient pas au polygone
-*/
-
 /**
 * retourne vrai si G appartient à P et faux sinon
 * @param {polygone} P polygone
@@ -142,7 +135,6 @@ function getAirePolygone(polygone){
         tempB = tempPoly[i+1].x * tempPoly[i].y;
         result += tempA-tempB;
     }
-    result = getValAbsolue(result);
     return result*(0.5);
 }
 /**
