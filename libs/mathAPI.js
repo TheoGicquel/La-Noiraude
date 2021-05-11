@@ -93,12 +93,14 @@ function getAppartenancePointPolygone ( polygone,point){
         tempVecB= getVectorCoords(tempVecB);
         result+=getAngleSegment(tempVecA,tempVecB);
     }
-    
-    if(result==2*Math.PI){
-        return true;
-    }
-    else{
+    // si somme des angles==0, point externe au polygone (sinon interne)
+    if(result==0)
+    {
         return false;
+    }
+    else
+    {
+        return true;
     }
 
 }
