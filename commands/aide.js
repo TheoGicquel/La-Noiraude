@@ -4,7 +4,10 @@
  * @author Theo Gicquel 
  */
 
-/** Message à afficher */
+/**
+ *  Chaîne de caractères d'aide afficher
+ * @type String
+ */
 const aideMessage = `
 (réalisé par Théo Gicquel & Julien mocquet)
 ** Commandes de base **
@@ -23,7 +26,9 @@ const aideMessage = `
 \`!dance\`\t ???
 `;
 
-/** exportation de la commande */
+/**
+ * Exportation du module local en commande appellée avec `!aide`
+ */
 module.exports = {
     execute(message,args){
         message.channel.send(aideMessage);
