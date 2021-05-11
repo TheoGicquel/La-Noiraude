@@ -58,18 +58,25 @@ function getAngleSegment(vecA,vecB){
     if(vecA.hasOwnProperty("xa")){
         throw "vecteur (x,y) attendu au lieu de segment";
     }
-
+    let result;
+    let signe;
+    console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
     let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
-    return Math.acos(tempA/tempB);
+    console.log("ACOS :"+Math.acos(tempA/tempB));
+    result = Math.acos(tempA/tempB);
+    // On détermine le signe de l'angle qu'on applique a l'angle calculé
+    signe =getDeterminant(vecA,vecB);
+    if(signe<0)
+    {
+        return -result;
+    }
+    else
+    {
+        return result
+    }
 }
 
-
-/** //FIXME Modifs a apporter
-* - réaliser le calcul du déterminant
-* - modifier la somme pour prendre en compte le signe de l'angle
-* - modifier la condition d'appartenance : si la somme des angles vaut zéro, le point n'appartient pas au polygone
-*/
 
 /**
 * retourne vrai si G appartient à P et faux sinon
@@ -93,12 +100,14 @@ function getAppartenancePointPolygone ( polygone,point){
         tempVecB= getVectorCoords(tempVecB);
         result+=getAngleSegment(tempVecA,tempVecB);
     }
-    
-    if(result==2*Math.PI){
-        return true;
-    }
-    else{
+    // si somme des angles==0, point externe au polygone (sinon interne)
+    if(result==0)
+    {
         return false;
+    }
+    else
+    {
+        return true;
     }
 
 }
@@ -128,8 +137,22 @@ function getAirePolygone(polygone){
     }
     return result*(0.5);
 }
-
-
+/**
+ * Retourne la valeur absolue de la variable donnée en entrée
+ * NOTE: même principe d'utilisation que `Math.abs()`...
+ * @param  {Number} valeur
+ * @returns {Number} Valeur absolue 
+ */
+function getValAbsolue(valeur){
+    if(valeur<0)
+    {     
+        return -valeur;
+    }
+    else if(valeur>0 || valeur==0)
+    {
+        return valeur;
+    }
+}
 
 /**
  * Calcul du centre de gravité d'un polygone
@@ -194,6 +217,22 @@ function getOrdonneeGravite(polygone, aire){
     return result;
 }
 
+/**
+* Obtenir le produit scalaire de deux vecteur d'entree
+* @param {Object} vecA premier vecteur d'entrée
+* @param {Object} vecB deuxième vecteur d'entrée
+* @returns {Number}  déterminant des deux vecteurs 
+* | x.a | y.a | = x.a*y.b - y.a*x.b
+* |-----|-----|
+* | x.b | y.b |
+*/
+function getDeterminant(vecA,vecB){
+    let tempx = vecA.x * vecB.y;
+    let tempy = vecA.y * vecB.x;
+    let result = tempx-tempy;
+    return result;
+}
+
 // Nécessaires
 module.exports.getAirePolygone = getAirePolygone;
 module.exports.getCentreGravite = getCentreGravite;
@@ -205,3 +244,5 @@ module.exports.getAngleSegment = getAngleSegment;
 module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.pointConstructor = pointConstructor;
+module.exports.getDeterminant = getDeterminant;
+module.exports.getValAbsolue = getValAbsolue;

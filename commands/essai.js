@@ -44,7 +44,13 @@ let listeEssai=`\t\`1\` (-1 , 1) (-1 , -1) (1 , -1) (1 , 1) \n
                     centreAttendu="(1.978, 1.903)";
                     presenceAttendue="Extérieur";
                     break;
-             default:
+            case 4:
+                    jeu="26,0:8,10:10,11:6,15:3,22:1,27:3,29:12,25:17,20:18,22:24,20:33,18:39,8:44,0:44,-8:44,-18:39,-20:33,-22:24,-20:18,-25:17,-29:12,-27:3,-22:1,-15,3:-11,6:-10,10"
+                    aireAttendue=undefined;
+                    centreAttendu=undefined;
+                    presenceAttendue=undefined;
+                    break;
+            default:
                  return message.channel.send("erreur de saisie");
                  break;
          }
