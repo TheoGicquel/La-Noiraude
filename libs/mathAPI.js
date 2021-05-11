@@ -58,13 +58,23 @@ function getAngleSegment(vecA,vecB){
     if(vecA.hasOwnProperty("xa")){
         throw "vecteur (x,y) attendu au lieu de segment";
     }
-    //FIXME use getDeterminant around here
+    let result;
+    let signe;
     console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
     let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
     console.log("ACOS :"+Math.acos(tempA/tempB));
-    return Math.acos(tempA/tempB);
+    result = Math.acos(tempA/tempB);
+    // Tentative de calcul
+    signe =getDeterminant(vecA,vecB);
+    if(signe<0){
+        return -result;
+    }
+    else{
+        return result
+    }
 }
+
 
 
 /** //FIXME Modifs a apporter
