@@ -58,9 +58,11 @@ function getAngleSegment(vecA,vecB){
     if(vecA.hasOwnProperty("xa")){
         throw "vecteur (x,y) attendu au lieu de segment";
     }
-
+    //FIXME use getDeterminant around here
+    console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
     let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
+    console.log("ACOS :"+Math.acos(tempA/tempB));
     return Math.acos(tempA/tempB);
 }
 
@@ -137,7 +139,6 @@ function getAirePolygone(polygone){
  * @returns {Number} Valeur absolue 
  */
 function getValAbsolue(valeur){
-    console.log("valabs entree :"+valeur);
     if(valeur<0)
     {     
         return -valeur;
@@ -216,6 +217,9 @@ function getOrdonneeGravite(polygone, aire){
 * @param {Object} vecA premier vecteur d'entrée
 * @param {Object} vecB deuxième vecteur d'entrée
 * @returns {Number}  déterminant des deux vecteurs 
+* | x.a | y.a | = x.a*y.b - y.a*x.b
+* |-----|-----|
+* | x.b | y.b |
 */
 function getDeterminant(vecA,vecB){
     let tempx = vecA.x * vecB.y;
