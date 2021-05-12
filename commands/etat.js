@@ -12,7 +12,9 @@ let io = require('../libs/io')
 /** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){
-        message.channel.send(io.jsonPrettifier(noiraude.enclos));
+        message.channel.send(
+            "```" + io.jsonPrettifier(noiraude.enclos) + "```"
+        );
     },
     name: "etat",
 };
