@@ -6,7 +6,6 @@
  */
 
 /** requisistion des modules nécessaires */
-let vache = require('../libs/vacheAPIs.js');
 let mathAPI = require('../libs/mathAPI.js');
 let noiraude = require('../libs/noiraude');
 let io = require('../libs/io');

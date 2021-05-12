@@ -8,7 +8,6 @@
 
 /** requisistion des modules nécessaires */
 const Discord = require('discord.js')
-var vache = require('./libs/vacheAPIs.js');
 var mathAPI = require('./libs/mathAPI.js');
 var config = require('./config.json');
 var fs = require("fs")
