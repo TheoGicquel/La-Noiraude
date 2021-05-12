@@ -2,7 +2,7 @@
  * @file Hello.js
  * @usage `!hello`
  * @fileoverview Affiche un message de salutation aléatoire
- * @author Julien Mocquet ( qui aurais du relire et documenter son propre code)
+ * @author Julien Mocquet
  */
 
 /**
