@@ -15,7 +15,7 @@ const info = `
     - Théo Gicquel https://gitlab.com/TheoGicquel
     - Julien Mocquet https://gitlab.com/jujugibus
 
-    Réalisé du 02 Avril 2021 au 15 Mai 2021
+    Réalisé du 02 Avril 2021 au 17 Mai 2021
     Le code source de ce projet est consultable sur https://gitlab.com/TheoGicquel/la-noiraude-bot
     version : ** release v2.0 - Vieux Lille :cheese: **
 `;
