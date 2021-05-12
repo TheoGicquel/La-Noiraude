@@ -74,7 +74,7 @@ bot.on('message', message => {
         return;
     } 
     
-    /** Tentative d'exécution de l'erreur */
+    /** Tentative d'exécution de la commande */
     try{
         command.execute(message, args)
     }
