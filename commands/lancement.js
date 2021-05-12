@@ -19,6 +19,13 @@ module.exports = {
             return message.reply("Définissez l'enclos d'abord !");
         }
 
+        if(noiraude.enclos.length>noiraude.maxPiquets){
+            return message.reply(
+                "L'enclos saisi possède trop de piquets ! ( max : " +
+                noiraude.maxPiquets + ")"
+            );
+        }
+
         /** Message invitant l'utilisateur a attendre les résultats */
         message.channel.send("Calculs en cours... veuillez patienter :watch:");
 

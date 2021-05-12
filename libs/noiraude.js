@@ -14,7 +14,13 @@
  * @type {Array} enclos
  * Tableau composé d'objets de piquets ayant chacun des coordonnées `x`et `y`
  */
-var enclos = []
+var enclos = [];
+
+/**
+ * @type {Number} maxPiquets
+ * Nombre maximal de piquets autorisés
+ */
+var maxPiquets = 50;
 
 /** Retourne l'
  *  @function getEnclos
@@ -61,5 +67,6 @@ module.exports = {
    setEnclos,
    setEnclosIndex,
    pushEnclos,
-   enclos
+   enclos,
+   maxPiquets
 };
