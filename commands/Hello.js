@@ -19,8 +19,13 @@ const listHello = [
 /** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){ 
-        //FIXME @jujugibus Julien mocquet : longueur ligne !
-        message.channel.send(`${listHello[Math.floor(Math.random() * listHello.length)]}`); //floor retire la décimal // Math.random = un chiffre entre 0 et 1 (exclus)
+        /**
+         * Tirage d'un message aléatoire
+         * `Math.floor` - suppression décimale
+         * `Math.random` Tirage aléatoire dans l'intervalle ]0;1[
+         */
+        message.channel.send(
+            `${listHello[Math.floor(Math.random() * listHello.length)]}`);
     },
     name: "hello",
 };
