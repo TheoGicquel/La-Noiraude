@@ -22,7 +22,8 @@ module.exports = {
                         noiraude.enclos=io.saisieParser(args[0]);
                         return message.channel.send(
                             ":white_check_mark: Saisie effectuée !\n" 
-                            + io.jsonPrettifier(noiraude.enclos)
+                            + "```" + io.jsonPrettifier(noiraude.enclos) 
+                            + "```"
                         ); 
 
                     case false:
