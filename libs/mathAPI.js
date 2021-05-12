@@ -1,4 +1,8 @@
-/** @file mathAPI.js */
+/**
+ * @file mathAPI.js
+ * @fileoverview Librairie de calcul mathématique
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
+ */
 
 /**
  * Retourne un objet de point selon les coordonnées
@@ -14,6 +18,7 @@ function pointConstructor(coordX, coordY){
       }
       return point;
 }
+
 /**
  Retourne la norme du vecteur fourni en entrée
 * @param {number} vecX Cordonnees x du vecteur
@@ -51,22 +56,17 @@ function getProduitScalaire(u,v){
 /**
 * calculer l'angle entre les segments de droite 
 * @param {Segment} vecA 
-* @param {Segment} vecB
+* @param {Segment} vecB 
 * @returns {number} produit scalaire de sortie
 */
 function getAngleSegment(vecA,vecB){
-    if(vecA.hasOwnProperty("xa")){
-        throw "vecteur (x,y) attendu au lieu de segment";
-    }
-    let result;
-    let signe;
-    console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
-    let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
+
+    let tempA = getProduitScalaire(vecA,vecB); 
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
-    console.log("ACOS :"+Math.acos(tempA/tempB));
-    result = Math.acos(tempA/tempB);
-    // On détermine le signe de l'angle qu'on applique a l'angle calculé
-    signe =getDeterminant(vecA,vecB);
+    let result = Math.acos(tempA/tempB);
+
+    /** Récupération du déterminant et application de son signe a `result` */
+    let signe = getDeterminant(vecA,vecB)
     if(signe<0)
     {
         return -result;
@@ -76,7 +76,6 @@ function getAngleSegment(vecA,vecB){
         return result
     }
 }
-
 
 /**
 * retourne vrai si G appartient à P et faux sinon
@@ -111,6 +110,7 @@ function getAppartenancePointPolygone ( polygone,point){
     }
 
 }
+
 /**
  * retourne un segment a partir de deux points fournis en entréee
  * @param  {Object} pointA
@@ -137,6 +137,7 @@ function getAirePolygone(polygone){
     }
     return result*(0.5);
 }
+
 /**
  * Retourne la valeur absolue de la variable donnée en entrée
  * NOTE: même principe d'utilisation que `Math.abs()`...
@@ -233,16 +234,18 @@ function getDeterminant(vecA,vecB){
     return result;
 }
 
-// Nécessaires
-module.exports.getAirePolygone = getAirePolygone;
-module.exports.getCentreGravite = getCentreGravite;
-module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
-module.exports.getVectorNorme = getVectorNorme;
-module.exports.getVectorCoords = getVectorCoords;
-module.exports.getProduitScalaire = getProduitScalaire;
-module.exports.getAngleSegment = getAngleSegment;
-module.exports.getAbscisseGravite = getAbscisseGravite;
-module.exports.getOrdonneeGravite = getOrdonneeGravite;
-module.exports.pointConstructor = pointConstructor;
-module.exports.getDeterminant = getDeterminant;
-module.exports.getValAbsolue = getValAbsolue;
+/** Exportation des commandes du module */
+module.exports ={
+    getAirePolygone,
+    getCentreGravite,
+    getAppartenancePointPolygone,
+    getVectorNorme,
+    getVectorCoords,
+    getProduitScalaire,
+    getAngleSegment,
+    getAbscisseGravite,
+    getOrdonneeGravite,
+    pointConstructor,
+    getDeterminant,
+    getValAbsolue
+}

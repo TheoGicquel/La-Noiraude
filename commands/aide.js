@@ -2,19 +2,20 @@
  * @file aide.js
  * @usage `!aide`
  * @fileoverview Commande d'affichage des commandes disponibles
- * @author Theo Gicquel
- * @author Julien Mocquet 
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
  */
 
-/** Message à afficher */
+/**
+ * Chaîne de caractères brute d'aide afficher (retours a la ligne inclus)
+ * @type {String}
+ * @const
+ */
 const aideMessage = `
-(Réalisé par Théo Gicquel & Julien Mocquet)
+(réalisé par Théo Gicquel & Julien mocquet)
 ** Commandes de base **
 \`!aide\`\t Affichage de la liste de toutes les commandes
-
-
+\`!essai\`\t Charger un enclos d'un jeu d'essai préconfiguré
 \`!etat\`\t afficher les piquets de l'enclos
-\`!enclos\`\t modifier précisément l'enclos 
 \`!saisie\`\t saisir un ensemble de piquets de l'enclos simultanément
 
 \`!lancement\`\t déterminer si la vache se trouve dans le pré
@@ -25,7 +26,7 @@ const aideMessage = `
 \`!dance\`\t ???
 `;
 
-/** exportation de la commande + affichage du message */
+/** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){
         message.channel.send(aideMessage);

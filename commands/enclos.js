@@ -1,6 +1,15 @@
-let vache = require('../libs/vacheAPIs.js');
+/**
+ * @file enclos.js
+ * @usage `!essai nombre`
+ * @fileoverview commande de modification
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
+ */
+
+/** requisistion des modules nécessaires */
 let mathAPI = require('../libs/mathAPI.js');
 let noiraude = require('../libs/noiraude');
+
+/** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){
         if (args.length != 3) {
