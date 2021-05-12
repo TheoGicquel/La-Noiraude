@@ -14,7 +14,7 @@ let io = require('../libs/io');
 /** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){
-    /** Contrôle du nombre d'arguments */
+        /** Contrôle du nombre d'arguments */
         if(noiraude.enclos.length<3){
             return message.reply("Définissez l'enclos d'abord !");
         }
@@ -42,9 +42,7 @@ module.exports = {
         );
         message.channel.send("Valeur appartenance :");
         message.channel.send("**" + appartenance + "**");
-
         return message.channel.send("calculs terminés !");
-
     },
     name: "lancement",
 };
