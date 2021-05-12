@@ -8,10 +8,8 @@
 
 /** requisistion des modules nécessaires */
 const Discord = require('discord.js')
-var mathAPI = require('./libs/mathAPI.js');
 var config = require('./config.json');
 var fs = require("fs")
-var noiraude = require('./libs/noiraude');
 
 /** Initialisation du robot a l'aide du constructeur */
 bot = new Discord.Client();
