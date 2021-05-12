@@ -61,13 +61,13 @@ function getProduitScalaire(u,v){
 */
 function getAngleSegment(vecA,vecB){
 
-    let result;
     let tempA = getProduitScalaire(vecA,vecB); 
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
-    result = Math.acos(tempA/tempB);
+    let result = Math.acos(tempA/tempB);
 
     /** Récupération du déterminant et application de son signe a `result` */
-    if(tempA<0)
+    let signe = getDeterminant(vecA,vecB)
+    if(signe<0)
     {
         return -result;
     }
@@ -218,6 +218,21 @@ function getOrdonneeGravite(polygone, aire){
     return result;
 }
 
+/**
+* Obtenir le produit scalaire de deux vecteur d'entree
+* @param {Object} vecA premier vecteur d'entrée
+* @param {Object} vecB deuxième vecteur d'entrée
+* @returns {Number}  déterminant des deux vecteurs 
+* | x.a | y.a | = x.a*y.b - y.a*x.b
+* |-----|-----|
+* | x.b | y.b |
+*/
+function getDeterminant(vecA,vecB){
+    let tempx = vecA.x * vecB.y;
+    let tempy = vecA.y * vecB.x;
+    let result = tempx-tempy;
+    return result;
+}
 
 /** Exportation des commandes du module */
 module.exports.getAirePolygone = getAirePolygone;
@@ -230,4 +245,5 @@ module.exports.getAngleSegment = getAngleSegment;
 module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.pointConstructor = pointConstructor;
+module.exports.getDeterminant = getDeterminant;
 module.exports.getValAbsolue = getValAbsolue;
