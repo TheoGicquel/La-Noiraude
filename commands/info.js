@@ -17,8 +17,7 @@ const info = `
 
     Réalisé du 02 Avril 2021 au 15 Mai 2021
     Le code source de ce projet est consultable sur https://gitlab.com/TheoGicquel/la-noiraude-bot
-    version : ** release v2.0 - Vieux Lille :cheese: 
-
+    version : ** release v2.0 - Vieux Lille :cheese: **
 `;
 
 /** Exportation du module local en commande appellée via son attribut `name`*/

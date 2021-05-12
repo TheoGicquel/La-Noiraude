@@ -14,10 +14,8 @@ const aideMessage = `
 (réalisé par Théo Gicquel & Julien mocquet)
 ** Commandes de base **
 \`!aide\`\t Affichage de la liste de toutes les commandes
-
-
+\`!essai\`\t Charger un enclos d'un jeu d'essai préconfiguré
 \`!etat\`\t afficher les piquets de l'enclos
-\`!enclos\`\t modifier précisément l'enclos 
 \`!saisie\`\t saisir un ensemble de piquets de l'enclos simultanément
 
 \`!lancement\`\t déterminer si la vache se trouve dans le pré
