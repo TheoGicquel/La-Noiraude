@@ -1,14 +1,12 @@
 /**
  * @file aide.js
- * @usage `!aide`
  * @fileoverview Commande d'affichage des commandes disponibles
- * @author Theo Gicquel
- * @author Julien Mocquet 
+ * @author Theo Gicquel 
  */
 
 /** Message à afficher */
 const aideMessage = `
-(Réalisé par Théo Gicquel & Julien Mocquet)
+(réalisé par Théo Gicquel & Julien mocquet)
 ** Commandes de base **
 \`!aide\`\t Affichage de la liste de toutes les commandes
 
@@ -25,7 +23,7 @@ const aideMessage = `
 \`!dance\`\t ???
 `;
 
-/** exportation de la commande + affichage du message */
+/** exportation de la commande */
 module.exports = {
     execute(message,args){
         message.channel.send(aideMessage);
