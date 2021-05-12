@@ -1,6 +1,11 @@
-/** @file vacheAPIs.js */
+/**
+ * @file vacheAPIs.js
+ * @fileoverview  manipulation de données relatives à la vache et l'enclos
+ * @deprecated Potentiellement car non utilisé
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
+ */
 
-/** constructeur de vecteur générique ( pourrait être inutile) */
+/** constructeur de vecteur générique */
 var vector = {
     x:undefined, 
     y:undefined,

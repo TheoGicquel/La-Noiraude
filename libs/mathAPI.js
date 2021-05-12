@@ -1,4 +1,8 @@
-/** @file mathAPI.js */
+/**
+ * @file mathAPI.js
+ * @fileoverview Librairie de calcul mathématique
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
+ */
 
 /**
  * Retourne un objet de point selon les coordonnées
@@ -14,6 +18,7 @@ function pointConstructor(coordX, coordY){
       }
       return point;
 }
+
 /**
  Retourne la norme du vecteur fourni en entrée
 * @param {number} vecX Cordonnees x du vecteur
@@ -60,10 +65,10 @@ function getAngleSegment(vecA,vecB){
     }
     let result;
     let signe;
-    console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
+    //console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
     let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
-    console.log("ACOS :"+Math.acos(tempA/tempB));
+    //console.log("ACOS :"+Math.acos(tempA/tempB));
     result = Math.acos(tempA/tempB);
     // On détermine le signe de l'angle qu'on applique a l'angle calculé
     signe =getDeterminant(vecA,vecB);
@@ -76,7 +81,6 @@ function getAngleSegment(vecA,vecB){
         return result
     }
 }
-
 
 /**
 * retourne vrai si G appartient à P et faux sinon
@@ -111,6 +115,7 @@ function getAppartenancePointPolygone ( polygone,point){
     }
 
 }
+
 /**
  * retourne un segment a partir de deux points fournis en entréee
  * @param  {Object} pointA
@@ -137,6 +142,7 @@ function getAirePolygone(polygone){
     }
     return result*(0.5);
 }
+
 /**
  * Retourne la valeur absolue de la variable donnée en entrée
  * NOTE: même principe d'utilisation que `Math.abs()`...

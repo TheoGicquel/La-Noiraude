@@ -3,8 +3,13 @@
  * @fileoverview Librairie de formatage entrée/sortie
  * @author Theo Gicquel <theo.gicquel.work@gmail.com>
  */
- const mathAPI = require('../libs/mathAPI.js');
- const saisieFilterRegex =  new RegExp(/[a-zA-Z;]+/g);
+
+
+const mathAPI = require('../libs/mathAPI.js');
+
+/** @const saisieFilterRegex - expression régulière pour caractères illégaux */
+const saisieFilterRegex =  new RegExp(/[a-zA-Z;]+/g);
+
 /**
  * Formatte le json fourni en entrée
  * @param  {Object} Json a formatter
