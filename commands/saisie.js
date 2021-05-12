@@ -20,11 +20,18 @@ module.exports = {
                 switch (validation) {
                     case true:
                         noiraude.enclos=io.saisieParser(args[0]);
-                        return message.channel.send(":white_check_mark: Saisie effectuée !\n" + io.jsonPrettifier(noiraude.enclos)); 
+                        return message.channel.send(
+                            ":white_check_mark: Saisie effectuée !\n" 
+                            + io.jsonPrettifier(noiraude.enclos)
+                        ); 
+
                     case false:
                         return message.channel.send(":x: Saisie invalide !");
+
                     default:
-                        return message.channel.send(":thinking: Problème de saisie innatendu");
+                        return message.channel.send(
+                            ":thinking: Problème de saisie innatendu"
+                        );
                 }
             default:
                 message.channel.send(

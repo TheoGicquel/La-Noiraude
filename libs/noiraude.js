@@ -56,10 +56,10 @@ function pushEnclos(value){
 
 
 
- module.exports = {
-    getEnclos,
-    setEnclos,
-    setEnclosIndex,
-    pushEnclos,
-    enclos
- };
+module.exports = {
+   getEnclos,
+   setEnclos,
+   setEnclosIndex,
+   pushEnclos,
+   enclos
+};

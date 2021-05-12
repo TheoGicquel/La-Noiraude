@@ -20,7 +20,7 @@ module.exports = {
         }
 
         /** Message invitant l'utilisateur a attendre les résultats */
-        message.channel.send("Calcul en cours...");
+        message.channel.send("Calculs en cours... veuillez patienter :watch:");
 
         /** Calcul de l'aire a partir de l'enclos  */        
         let aire = mathAPI.getAirePolygone(noiraude.enclos);
@@ -36,13 +36,32 @@ module.exports = {
         );
 
         /** Affichage des résultats des calculs */
-        message.channel.send("aire obtenue : " + aire);
+        message.channel.send("aire obtenue : " + mathAPI.getValAbsolue(aire));
         message.channel.send(
-            "centre de gravité  : " + io.jsonPrettifier(centreGravite)
+            "**centre de gravité**  : " + 
+            "```" + io.jsonPrettifier(centreGravite) + "```"
         );
-        message.channel.send("Valeur appartenance :");
-        message.channel.send("**" + appartenance + "**");
-        return message.channel.send("calculs terminés !");
+
+        switch (appartenance) {
+            case true:
+                message.channel.send(
+                    "** La vache est dans le pré !** :herb: :cow: :herb:"
+                );
+                break;
+            case false:
+                message.channel.send(
+                    "** La vache est en dehors du pré !**  :cow: :herb: :herb:"
+                );
+                break;
+        
+            default:
+                message.channel.send(
+                    "** La vache est perdue.. **  :cow: :cloud_tornado:"
+                );
+                console.error("appartenance invalide")
+                break;
+        }
+        return message.channel.send("calculs terminés ! :checkered_flag: ");
     },
     name: "lancement",
 };

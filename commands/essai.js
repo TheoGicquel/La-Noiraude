@@ -24,11 +24,10 @@ let aireAttendue;
  * @const
  */
 const listeEssai=`
-	\`1\` (-1 , 1) (-1 , -1) (1 , -1) (1 , 1) \n
-	\`2\`(-16.6 ,-20.1 ) (-12.6 , -18.6) (-11.6 , -16.6) (-15.1 , -15.1 ) \n
-	\`3\`(-1.1 , -1.5 ) (2.1 , 3.012 ) (5.6 , -1.21) (1.97 , 4.07) \n
-	\`3\`(-1.1 , -1.5 ) (2.1 , 3.012 ) (5.6 , -1.21) (1.97 , 4.07) \n
-`
+    \`1\` (-1 , 1) (-1 , -1) (1 , -1) (1 , 1) \n
+    \`2\`(-16.6 ,-20.1 ) (-12.6 , -18.6) (-11.6 , -16.6) (-15.1 , -15.1 ) \n
+    \`3\`(-1.1 , -1.5 ) (2.1 , 3.012 ) (5.6 , -1.21) (1.97 , 4.07) \n
+    \`4\` :mouse:\n`
 
 module.exports = {
     execute(message,args){
@@ -39,6 +38,7 @@ module.exports = {
 		}
         else
 	    {
+			/** Récupération des infos a afficher et données a intégrer */
 	        switch (parseInt(args[0])){
 	            case 1:
 		            jeu="-1,1:-1,-1:1,-1:1,1";
@@ -61,9 +61,9 @@ module.exports = {
 		            break;
 	            case 4:
 		            jeu="26,0:8,10:10,11:6,15:3,22:1,27:3,29:12,25:17,20:18,22:24,20:33,18:39,8:44,0:44,-8:44,-18:39,-20:33,-22:24,-20:18,-25:17,-29:12,-27:3,-22:1,-15,3:-11,6:-10,10"
-		            aireAttendue=undefined;
-		            centreAttendu=undefined;
-		            presenceAttendue=undefined;
+		            aireAttendue="3.563";
+		            centreAttendu="1.979";
+		            presenceAttendue="1.904";
 		            break;
 
 	            default:
