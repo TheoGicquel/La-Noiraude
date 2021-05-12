@@ -56,23 +56,18 @@ function getProduitScalaire(u,v){
 /**
 * calculer l'angle entre les segments de droite 
 * @param {Segment} vecA 
-* @param {Segment} vecB
+* @param {Segment} vecB 
 * @returns {number} produit scalaire de sortie
 */
 function getAngleSegment(vecA,vecB){
-    if(vecA.hasOwnProperty("xa")){
-        throw "vecteur (x,y) attendu au lieu de segment";
-    }
+
     let result;
-    let signe;
-    //console.log("GETDETERMEINANT : "+getDeterminant(vecA,vecB));
-    let tempA = getProduitScalaire(vecA,vecB); // !FIXME confusion ici
+    let tempA = getProduitScalaire(vecA,vecB); 
     let tempB = getVectorNorme(vecA) * getVectorNorme(vecB)
-    //console.log("ACOS :"+Math.acos(tempA/tempB));
     result = Math.acos(tempA/tempB);
-    // On détermine le signe de l'angle qu'on applique a l'angle calculé
-    signe =getDeterminant(vecA,vecB);
-    if(signe<0)
+
+    /** Récupération du déterminant et application de son signe a `result` */
+    if(tempA<0)
     {
         return -result;
     }
@@ -223,23 +218,8 @@ function getOrdonneeGravite(polygone, aire){
     return result;
 }
 
-/**
-* Obtenir le produit scalaire de deux vecteur d'entree
-* @param {Object} vecA premier vecteur d'entrée
-* @param {Object} vecB deuxième vecteur d'entrée
-* @returns {Number}  déterminant des deux vecteurs 
-* | x.a | y.a | = x.a*y.b - y.a*x.b
-* |-----|-----|
-* | x.b | y.b |
-*/
-function getDeterminant(vecA,vecB){
-    let tempx = vecA.x * vecB.y;
-    let tempy = vecA.y * vecB.x;
-    let result = tempx-tempy;
-    return result;
-}
 
-// Nécessaires
+/** Exportation des commandes du module */
 module.exports.getAirePolygone = getAirePolygone;
 module.exports.getCentreGravite = getCentreGravite;
 module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
@@ -250,5 +230,4 @@ module.exports.getAngleSegment = getAngleSegment;
 module.exports.getAbscisseGravite = getAbscisseGravite;
 module.exports.getOrdonneeGravite = getOrdonneeGravite;
 module.exports.pointConstructor = pointConstructor;
-module.exports.getDeterminant = getDeterminant;
 module.exports.getValAbsolue = getValAbsolue;
