@@ -11,6 +11,8 @@ let vache = require('../libs/vacheAPIs.js');
 let mathAPI = require('../libs/mathAPI.js');
 let noiraude = require('../libs/noiraude');
 let io = require('../libs/io');
+
+/** définition des variables et constantes nécessaires */
 let jeu;
 let aideEssai=`Veuillez saisir une préconfiguration d'enclos parmis les 
 suivantes avec \`!essai <numéro>\` `
