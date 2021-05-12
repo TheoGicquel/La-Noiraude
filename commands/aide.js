@@ -1,7 +1,8 @@
 /**
  * @file aide.js
+ * @usage `!aide`
  * @fileoverview Commande d'affichage des commandes disponibles
- * @author Theo Gicquel 
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
  */
 
 /**
@@ -27,7 +28,7 @@ const aideMessage = `
 \`!dance\`\t ???
 `;
 
-/** Exportation du module local en commande appellée avec `!aide` */
+/** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){
         message.channel.send(aideMessage);
