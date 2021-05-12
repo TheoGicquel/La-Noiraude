@@ -31,11 +31,22 @@ module.exports = {
 
         /** Calcul de l'aire a partir de l'enclos  */        
         let aire = mathAPI.getAirePolygone(noiraude.enclos);
-
+        
+        /** contrôle de validation du calcul de l'aire */
+        if(isNaN(aire))
+        {
+            console.error("Aire NaN");
+            return message.reply(":x:**Erreur calcul **: aire ");
+        }
+        
         /** Calcul du centre de gravité à partir de l'aire et de l'enclos  */        
-        let centreGravite = mathAPI.getCentreGravite(
-            noiraude.enclos,aire
-        );
+        let centreGravite = mathAPI.getCentreGravite(noiraude.enclos,aire);
+        /** contrôle de validation des calculs du centre de gravité */
+        if(isNaN(centreGravite.x) || isNaN(centreGravite.y))
+        {
+            console.error("centregrav NaN");
+            return message.reply(":x:**Erreur calcul **: centre de gravité ");
+        }
 
         /** Calcul de l'appartennance du gravité à l'enclos */        
         let appartenance = mathAPI.getAppartenancePointPolygone(
