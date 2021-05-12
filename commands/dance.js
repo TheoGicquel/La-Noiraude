@@ -1,7 +1,8 @@
 /**
  * @file dance.js
- * @fileoverview Commande d'affichage d'un gif animé
- * @author Theo Gicquel 
+ * @usage `!dance`
+ * @fileoverview Commande affichant d'un gif animé
+ * @author Theo Gicquel <theo.gicquel.work@gmail.com>
  */
 
 /**
@@ -10,6 +11,8 @@
  * @const
  */
 var danceUrl = "https://tenor.com/view/polish-dancing-cow-dancing-cow-polish-gif-18921101";
+
+/** Exportation du module local en commande appellée via son attribut `name`*/
 module.exports = {
     execute(message,args){
         message.channel.send(danceUrl);
