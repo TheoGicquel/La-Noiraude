@@ -5,8 +5,9 @@
  */
 
 /**
- *  Chaîne de caractères d'aide afficher
- * @type String
+ * Chaîne de caractères brute d'aide afficher (retours a la ligne inclus)
+ * @type {String}
+ * @const
  */
 const aideMessage = `
 (réalisé par Théo Gicquel & Julien mocquet)
@@ -26,9 +27,7 @@ const aideMessage = `
 \`!dance\`\t ???
 `;
 
-/**
- * Exportation du module local en commande appellée avec `!aide`
- */
+/** Exportation du module local en commande appellée avec `!aide` */
 module.exports = {
     execute(message,args){
         message.channel.send(aideMessage);
