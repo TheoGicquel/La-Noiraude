@@ -1,6 +1,6 @@
 {
   "name": "la-noiraude-bot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "le robot discord de calcul de paturage",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://gitlab.com/TheoGicquel/la-noiraude-bot.git"
   },
-  "author": "Julien Mocquet & Theo Gicquel",
+  "author": "Théo GICQUEL <theo.gicquel.work@gmail.com> (http://theogicquel.github.io)",
   "license": "ISC",
   "bugs": {
     "url": "https://gitlab.com/TheoGicquel/la-noiraude-bot/issues"
