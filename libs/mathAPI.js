@@ -235,15 +235,17 @@ function getDeterminant(vecA,vecB){
 }
 
 /** Exportation des commandes du module */
-module.exports.getAirePolygone = getAirePolygone;
-module.exports.getCentreGravite = getCentreGravite;
-module.exports.getAppartenancePointPolygone = getAppartenancePointPolygone;
-module.exports.getVectorNorme = getVectorNorme;
-module.exports.getVectorCoords = getVectorCoords;
-module.exports.getProduitScalaire = getProduitScalaire;
-module.exports.getAngleSegment = getAngleSegment;
-module.exports.getAbscisseGravite = getAbscisseGravite;
-module.exports.getOrdonneeGravite = getOrdonneeGravite;
-module.exports.pointConstructor = pointConstructor;
-module.exports.getDeterminant = getDeterminant;
-module.exports.getValAbsolue = getValAbsolue;
+module.exports ={
+    getAirePolygone,
+    getCentreGravite,
+    getAppartenancePointPolygone,
+    getVectorNorme,
+    getVectorCoords,
+    getProduitScalaire,
+    getAngleSegment,
+    getAbscisseGravite,
+    getOrdonneeGravite,
+    pointConstructor,
+    getDeterminant,
+    getValAbsolue
+}
