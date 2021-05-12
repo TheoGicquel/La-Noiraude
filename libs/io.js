@@ -42,7 +42,7 @@ function saisieValidation(input){
  */
 function saisieParser(input){
     let group = input.split(":");
-    let tempCorrds =[];
+    let tempCoords = [];
     for (const [i, value] of group.entries()) {
         tempCoords = group[i].split(",");
         group[i]=mathAPI.pointConstructor(parseFloat(tempCoords[0]),parseFloat(tempCoords[1]));
