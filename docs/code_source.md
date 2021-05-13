@@ -16,7 +16,7 @@
 │   ├── `mathAPI.js`
 │   └── `noiraude.js`
 └── `index.js`
-<div style="page-break-after: always;"></div>
+
 
 `index.js`
 ```javascript
@@ -108,7 +108,7 @@ bot.on('message', message => {
     }
 })
 ```
-<div style="page-break-after: always;"></div>
+
 
 `io.js`
 
@@ -173,7 +173,7 @@ module.exports = {
 };
 ```
 
-<div style="page-break-after: always;"></div> 
+ 
 `mathAPI.js`
 
 ```javascript
@@ -429,7 +429,7 @@ module.exports ={
     getValAbsolue
 }
 ```
-<div style="page-break-after: always;"></div>
+
 `noiraude.js`
 ```javascript
 /**
@@ -544,7 +544,7 @@ module.exports = {
     name: "aide",
 };
 ```
-<div style="page-break-after: always;"></div>
+
 `dance.js`
 ```javascript
 /**
@@ -570,7 +570,7 @@ module.exports = {
 };
 
 ```
-<div style="page-break-after: always;"></div>
+
 `essai.js`
 ```javascript
 /**
@@ -658,7 +658,7 @@ module.exports = {
     name: "essai",
 };
 ```
-<div style="page-break-after: always;"></div>
+
 `etat.js`
 ```javascript
 /**
@@ -684,7 +684,7 @@ module.exports = {
 
 
 ```
-<div style="page-break-after: always;"></div>
+
 `hello.js`
 ```javascript
 /**
@@ -719,7 +719,7 @@ module.exports = {
     name: "hello",
 };
 ```
-<div style="page-break-after: always;"></div>
+
 `info.js`
 ```javascript
 /**
@@ -752,7 +752,7 @@ module.exports = {
     name: "info",
 };
 ```
-<div style="page-break-after: always;"></div>
+
 `lancement.js`
 ```javascript
 /**
@@ -841,7 +841,7 @@ module.exports = {
     name: "lancement",
 };
 ```
-<div style="page-break-after: always;"></div>
+
 `raz.js`
 ```javascript
 /**
@@ -863,7 +863,7 @@ module.exports = {
     name: "raz",
 };
 ```
-<div style="page-break-after: always;"></div>
+
 `saisie.js`
 ```javascript
 /**
