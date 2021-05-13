@@ -15,9 +15,7 @@
 
 ## Mise en place
 
-Le projet n'est non pas compilé mais  est executé au sein d'une instance NodeJS, un Runtime ( ou éxecutif) qui permet d'exécuter du Javascript côté serveur ( plus d'informations dans [le paragraphe dédié](#NodeJS) )
-
-
+Le projet n'est non pas compilé mais est exécuté au sein d'une instance NodeJS, un Runtime ( ou exécutif) qui permet d'exécuter du Javascript côté serveur ( plus d'informations dans le paragraphe dédié )
 
 ###  1 - Prérequis 
 
@@ -35,7 +33,7 @@ Cela installera toutes les dépendances nécessaires au projet
 
 ### 3 - Démarrage
 
-dans le même emplacement, effectuez la commande suivante pour démarrer l'instance locale de Nodejs
+Dans le même emplacement, effectuez la commande suivante pour démarrer l'instance locale de NodeJS
 
 ```bash
 npm run start
@@ -43,7 +41,7 @@ npm run start
 
 ### 4 - Accès à l'interface
 
-Puisque le projet est un robot utilisant l'API et la plateforme de discussion Discord:tm: ,il est nécessaire de se rendre sur un serveur disposant du robot.
+Puisque le projet est un robot utilisant l'API et la plateforme de discussion Discord ,il est nécessaire de se rendre sur un serveur disposant du robot.
 
 Vous avez donc à disposition le lien suivant d'accès à un serveur préparé à l'avance pour l'occasion, Le pré de la Noiraude :
 
@@ -51,19 +49,43 @@ https://discord.gg/b6hJTTAMp2
 
 ## Explications
 
-— si besoin, des explications sur le programme si vous estimez qu’une technique mise en oeuvre nécessite des précisions
-— une conclusion (intérêt du projet, difficultés, axes d’amélioration...)
-— en annexe, le code source du programme, imprimé en police à chasse fixe de type Courrier, en taille 8
+Le cœur du projet consiste en la création d’un module NodeJS utilisant ses propres sous modules effectuant les opérations nécessaires (calcul, formatage, saisie etc..)
 
+Ces modules sont  appelés via l’interface de programmation d'application (API) fournie par discord
 
+### NodeJS
 
-###  NodeJS
+NodeJS est un runtime évenementiel à file d’exécution unique créé en 2009 par [Ryan Dahl, son](https://en.wikipedia.org/wiki/Ryan_Dahl) fonctionnement repose sur du javascript, plus particulièrement sur une instance externe à un navigateur du moteur d’exécution [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) (réalisé par le projet chromium).
+
+### Fonctionnement interne
+Le point d’entrée d’exécution de l’application est situé dans le fichier `/index.js`, ce script effectue l’initialisation du robot discord et effectue l’importation de tous les modules situés dans le répertoire `/commands` 
+
+### Gestion des modules
+Un aspect pouvant être déroutant, est la façon dont les modules sont gérés au sein de nodeJS. 
+
+En effet, tout module nécessitant un sous module doit le définir explicitement avec `require()`, cependant, les parents de ce même module n’ont besoin que d'appeler leurs modules étant directement enfants, ce qui permet de grandement faciliter la lecture du code et bien évidemment, de pouvoir gérer les modules de manière indépendante les uns des autres.
+
+![img](./docs/node_module.jpg)
+
+Utiliser des modules dispose également d’un autre intérêt :
+
+Toutes les structures de données exposées par un module sont accessibles par tous les modules parents utilisant ce même module.
+
+Le meilleur exemple pour illustrer cela est le module situé dans `/libs/noiraude.js` qui stocke toutes les informations relative à l'enclos de la vache.
 
 ## Conclusion
 
 ### intérêt du projet
 
-### Difficultés, 
+Ce projet nous a permis d'améliorer nos compétences en javascript, et par la même occasion d'apprendre à utiliser NodeJS dans un cadre de projet/
+
+Concernant la gestion de projet en elle même, travailler sur un projet d'une telle taille a renforcé nos compétences a travailler en "équipe" dans un environnement git, et nous a permis de découvrir la fonctionnalité de "Releases" proposé par gitlab.
+
+### Difficultés
+
+Ce projet étant notre première expérience avec NodeJS, il a été assez difficile dans un premier temps de comprendre la façon dont les modules interagissaient entre eux.
+
+Les mathématiques nous ont posé une certaine difficulté, cependant, le fait d’utiliser du Javascript nous a grandement facilité la tâche en termes d’allocation mémoire et calcul.
 
 ### Axes d’amélioration
 
@@ -72,7 +94,7 @@ https://discord.gg/b6hJTTAMp2
 ### fichier.js
 
 ```javascript
-
+lorem ipsum dolor sit amet
 ```
 
 ### fichier.js
