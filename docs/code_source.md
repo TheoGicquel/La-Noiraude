@@ -16,9 +16,9 @@
 │   ├── `mathAPI.js`
 │   └── `noiraude.js`
 └── `index.js`
+<div style="page-break-after: always;"></div>
 
 `index.js`
-
 ```javascript
 /**
  * @file index.js
@@ -107,17 +107,17 @@ bot.on('message', message => {
         message.reply("Oops je crois que quelque chose c'est mal passé");
     }
 })
-
 ```
 <div style="page-break-after: always;"></div>
+
 `io.js`
+
 ```javascript
 /**
  * @file io.js
  * @fileoverview Librairie de formatage entrée/sortie
  * @author Theo Gicquel <theo.gicquel.work@gmail.com>
  */
-
 
 const mathAPI = require('../libs/mathAPI.js');
 
@@ -159,7 +159,9 @@ function saisieParser(input){
     let tempCoords = [];
     for (const [i, value] of group.entries()) {
         tempCoords = group[i].split(",");
-        group[i]=mathAPI.pointConstructor(parseFloat(tempCoords[0]),parseFloat(tempCoords[1]));
+        group[i]=mathAPI.pointConstructor(
+            parseFloat(tempCoords[0]),parseFloat(tempCoords[1])
+        );
       }
     return group;
 }
@@ -171,8 +173,9 @@ module.exports = {
 };
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div> 
 `mathAPI.js`
+
 ```javascript
 /**
  * @file mathAPI.js
