@@ -89,40 +89,7 @@ Les mathématiques nous ont posé une certaine difficulté, cependant, le fait d
 
 ### Axes d’amélioration
 
-## Annexe - Code source
-**Arborescence **
-.
-├── `/commands`
-│   ├── `aide.js`
-│   ├── `dance.js`
-│   ├── `essai.js`
-│   ├── `etat.js`
-│   ├── `hello.js`
-│   ├── `info.js`
-│   ├── `lancement.js`
-│   ├── `raz.js`
-│   └── `saisie.js`
-├── `/libs`
-│   ├── `io.js`
-│   ├── `mathAPI.js`
-│   └── `noiraude.js`
-└── `index.js`
-
-
-### fichier.js
-
-```javascript
-lorem ipsum dolor sit amet
-```
-
-### fichier.js
-
-```javascript
-
-```
-
-### fichier.js
-
-```javascript
-
-```
+- Meilleure gestion des exceptions et messages d’erreur
+- Optimisation des performances
+- Importation directe de la saisie de l’enclos via un fichier JSON ou autre envoyé au robot via discord
+- Affichage de l’enclos sous forme d’image générée automatiquement
