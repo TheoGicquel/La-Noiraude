@@ -19,7 +19,7 @@ Le projet n'est non pas compilé mais est exécuté au sein d'une instance NodeJ
 
 ###  1 - Prérequis 
 
-* Disposer de [Nodejs](https://nodejs.org/en/download/) (Si vous utilisez windows 7, la version 14.16.0 car dernière version supportée par cet OS )
+* Disposer de [Nodejs](https://nodejs.org/en/download/) (Si vous utilisez Windows 7, la version 14.16.0 car dernière version supportée par cet OS )
 
 ### 2 - Installation des dépendances
 
@@ -55,7 +55,7 @@ Ces modules sont  appelés via l’interface de programmation d'application (API
 
 ### NodeJS
 
-NodeJS est un runtime évenementiel à file d’exécution unique créé en 2009 par [Ryan Dahl, son](https://en.wikipedia.org/wiki/Ryan_Dahl) fonctionnement repose sur du javascript, plus particulièrement sur une instance externe à un navigateur du moteur d’exécution [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) (réalisé par le projet chromium).
+NodeJS est un runtime évènementiel à file d’exécution unique créé en 2009 par [Ryan Dahl, son](https://en.wikipedia.org/wiki/Ryan_Dahl) fonctionnement repose sur du javascript, plus particulièrement sur une instance externe à un navigateur du moteur d’exécution [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) (réalisé par le projet Chromium).
 
 ### Fonctionnement interne
 Le point d’entrée d’exécution de l’application est situé dans le fichier `/index.js`, ce script effectue l’initialisation du robot discord et effectue l’importation de tous les modules situés dans le répertoire `/commands` 
@@ -79,7 +79,7 @@ Le meilleur exemple pour illustrer cela est le module situé dans `/libs/noiraud
 
 Ce projet nous a permis d'améliorer nos compétences en javascript, et par la même occasion d'apprendre à utiliser NodeJS dans un cadre de projet/
 
-Concernant la gestion de projet en elle même, travailler sur un projet d'une telle taille a renforcé nos compétences a travailler en "équipe" dans un environnement git, et nous a permis de découvrir la fonctionnalité de "Releases" proposé par gitlab.
+Concernant la gestion de projet en elle même, travailler sur un projet d'une telle taille a renforcé nos compétences a travailler en "équipe" dans un environnement git, et nous a permis de découvrir la fonctionnalité de "Releases" proposé par Gitlab.
 
 ### Difficultés
 
