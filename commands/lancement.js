@@ -36,7 +36,7 @@ module.exports = {
         if(isNaN(aire))
         {
             console.error("Aire NaN");
-            return message.reply(":x:**Erreur calcul **: aire ");
+            message.channel.send(":x:**Erreur calcul **: aire ");
         }
         
         /** Calcul du centre de gravité à partir de l'aire et de l'enclos  */        
@@ -45,7 +45,7 @@ module.exports = {
         if(isNaN(centreGravite.x) || isNaN(centreGravite.y))
         {
             console.error("centregrav NaN");
-            return message.reply(":x:**Erreur calcul **: centre de gravité ");
+            message.channel.send(":x:**Erreur calcul **: centre de gravité ");
         }
 
         /** Calcul de l'appartennance du gravité à l'enclos */        
