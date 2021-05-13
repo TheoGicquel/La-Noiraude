@@ -35,7 +35,10 @@ bot.once('ready', () => {
  * importation de chaque module de commande présent dans `./commands/`
  *  a la collection de commandes du bots
  */
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); 
+const commandFiles = fs.readdirSync('./commands').filter(
+    file => file.endsWith('.js')
+); 
+
 for (const file of commandFiles){
     const command = require(`./commands/${file}`);
     bot.commands.set(command.name, command);
@@ -67,7 +70,9 @@ bot.on('message', message => {
 
     /** en cas de commande non trouvée  */
     if(!command){
-        message.reply("Je ne sais pas faire ça, je vais demander de l'aide à mon médecin");
+        message.reply(
+            "Je ne sais pas faire ça, je vais demander de l'aide à mon médecin"
+        );
         return;
     } 
     
