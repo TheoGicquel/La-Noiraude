@@ -65,7 +65,9 @@ Un aspect pouvant être déroutant, est la façon dont les modules sont gérés 
 
 En effet, tout module nécessitant un sous module doit le définir explicitement avec `require()`, cependant, les parents de ce même module n’ont besoin que d'appeler leurs modules étant directement enfants, ce qui permet de grandement faciliter la lecture du code et bien évidemment, de pouvoir gérer les modules de manière indépendante les uns des autres.
 
-![img](./docs/node_module.jpg)
+<img src="./docs/node_module.jpg" alt="img" style="zoom: 67%;" />
+
+
 
 Utiliser des modules dispose également d’un autre intérêt :
 
